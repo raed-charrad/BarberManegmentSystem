@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/big_image_1.jpg);">
+    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/big_image_1.jpg);">
       <div class="container">
         <div class="row align-items-center site-hero-inner justify-content-center">
           <div class="col-md-8 text-center">
@@ -66,7 +66,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_5.jpg" alt="Image placeholder" class="img-fluid">
+            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_5.jpg" alt="Image placeholder" class="img-fluid">
           </div>
           <div class="col-md-6 pl-md-5">
             <h3>Crew Cut</h3>
@@ -83,7 +83,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_3.jpg" alt="Image placeholder" class="img-fluid">
+            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg" alt="Image placeholder" class="img-fluid">
           </div>
           <div class="col-md-6 pl-md-5">
             <h3>Regular Hair Cut</h3>
@@ -100,7 +100,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_2.jpg" alt="Image placeholder" class="img-fluid">
+            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg" alt="Image placeholder" class="img-fluid">
           </div>
           <div class="col-md-6 pl-md-5">
             <h3>Hair Color</h3>
@@ -123,42 +123,42 @@
         <div class="row top-destination">
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_1.jpg" alt="Image placeholder">
+              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg" alt="Image placeholder">
               <h2>Beard Shaving</h2>
               <p>Learn More</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_2.jpg" alt="Image placeholder">
+              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg" alt="Image placeholder">
               <h2>Crew Cut</h2>
               <p>Learn More</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_3.jpg" alt="Image placeholder">
+              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg" alt="Image placeholder">
               <h2>Beard Trim</h2>
               <p>Learn More</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_4.jpg" alt="Image placeholder">
+              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_4.jpg" alt="Image placeholder">
               <h2>Shampoo + Hair Cut</h2>
               <p>Learn More</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_5.jpg" alt="Image placeholder">
+              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_5.jpg" alt="Image placeholder">
               <h2>Hair Color</h2>
               <p>Learn More</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_6.jpg" alt="Image placeholder">
+              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_6.jpg" alt="Image placeholder">
               <h2>Crew Hair Cut</h2>
               <p>Learn More</p>
             </a>
@@ -167,7 +167,7 @@
       </div>
     </section>
     <!-- END section -->
-    <section class="section-cover cta" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/big_image_2.jpg);">
+    <section class="section-cover cta" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/big_image_2.jpg);">
       <div class="container">
         <div class="row justify-content-center align-items-center intro">
           <div class="col-md-8 text-center element-animate">

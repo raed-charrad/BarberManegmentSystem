@@ -8,7 +8,7 @@
          <div class="col-md-8 text-center">
 
            <div class="mb-5 element-animate">
-             <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/banner_text_1.png" alt="Image placeholder" class="img-md-fluid">
+             <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/banner_text_1.png" alt="Image placeholder" class="img-md-fluid">
            </div>
 
          </div>
@@ -75,7 +75,7 @@
              <div class="col-md-12 slider-wrap">
                <div class="owl-carousel owl-theme no-nav js-carousel-1">
                  
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_2.jpg')">
+                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Haircuting</h2>
@@ -83,7 +83,7 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_1.jpg')">
+                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Beard Shaving</h2>
@@ -91,7 +91,7 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_3.jpg')">
+                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Cream &amp; Shampoo</h2>
@@ -99,7 +99,7 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_2.jpg')">
+                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Haircuting</h2>
@@ -107,7 +107,7 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_1.jpg')">
+                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Beard Shaving</h2>
@@ -115,14 +115,14 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_3.jpg')">
+                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Cream &amp; Shampoo</h2>
                      <p>Read More</p>
                    </div>
                  </a>
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_2.jpg')">
+                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Haircuting</h2>
@@ -130,7 +130,7 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_1.jpg')">
+                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Beard Shaving</h2>
@@ -138,14 +138,14 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_3.jpg')">
+                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Cream &amp; Shampoo</h2>
                      <p>Read More</p>
                    </div>
                  </a>
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_2.jpg')">
+                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Haircuting</h2>
@@ -153,7 +153,7 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_1.jpg')">
+                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Beard Shaving</h2>
@@ -161,7 +161,7 @@
                    </div>
                  </a>
 
-                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_3.jpg')">
+                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg')">
                    <div class="text">
                      <span class="icon custom-icon flaticon-scissors"></span>
                      <h2>Cream &amp; Shampoo</h2>
@@ -253,7 +253,7 @@
    </section>
    <!-- END section -->
 
-   <section class="section-cover cta" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/big_image_2.jpg);">
+   <section class="section-cover cta" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/big_image_2.jpg);">
      <div class="container">
        <div class="row justify-content-center align-items-center intro">
          <div class="col-md-8 text-center element-animate">
@@ -273,7 +273,7 @@
      <div class="container">
        <div class="row">
          <div class="col-md-6 video-wrap mb-5">
-           <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_5.jpg" alt="Image placeholder" class="img-fluid">
+           <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_5.jpg" alt="Image placeholder" class="img-fluid">
          </div>
          <div class="col-md-6 pl-md-5">
            <h3>Good Looking Style</h3>

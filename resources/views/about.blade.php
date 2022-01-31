@@ -2,7 +2,7 @@
 @section('content')
     <!-- END header -->
 
-    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/big_image_1.jpg);">
+    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/big_image_1.jpg);">
       <div class="container">
         <div class="row align-items-center site-hero-inner justify-content-center">
           <div class="col-md-8 text-center">
@@ -68,7 +68,7 @@
         </div>
         <div class="row element-animate">
           <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_5.jpg" alt="Image placeholder" class="img-fluid">
+            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_5.jpg" alt="Image placeholder" class="img-fluid">
           </div>
           <div class="col-md-6 pl-md-5">
             <h3>Jay Ramzee</h3>
@@ -85,7 +85,7 @@
       <div class="container">
         <div class="row element-animate">
           <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_7.jpg" alt="Image placeholder" class="img-fluid">
+            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_7.jpg" alt="Image placeholder" class="img-fluid">
           </div>
           <div class="col-md-6 pl-md-5">
             <h3>Chris Worth</h3>
@@ -102,7 +102,7 @@
       <div class="container">
         <div class="row element-animate">
           <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/stagePerfectionnement/master/resources/assets/images/img_8.jpg" alt="Image placeholder" class="img-fluid">
+            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_8.jpg" alt="Image placeholder" class="img-fluid">
           </div>
           <div class="col-md-6 pl-md-5">
             <h3>Dan Fisher</h3>
