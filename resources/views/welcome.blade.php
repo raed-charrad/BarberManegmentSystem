@@ -261,7 +261,7 @@
            @if (Auth::check())
            <p><button type="button" class="btn btn-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Make an Appointment</button></p>
           @else
-          <p><button type="button" class="btn btn-black" onclick="return confirm('you must login')">Make an Appointment</button></p>
+          <p> <a href="{{ route('login') }}"><button type="button" class="btn btn-black" >Make an Appointment</button></a></p>
           @endif
           </div>
        </div>

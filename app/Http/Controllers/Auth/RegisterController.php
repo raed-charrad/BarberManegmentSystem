@@ -76,7 +76,7 @@ class RegisterController extends Controller
         $r = Role::where('id', $data['role_id'])
             ->pluck('name')
             ->first();
-        DB::table('role_user')->insert(['role_id'=>$data['role_id'],'user_id'=>$user->id,'user_type'=>$r]);
+        DB::table('role_user')->insert(['role_id'=>$data['role_id'],'user_id'=>$user->id,'user_type'=>'App\Models\User']);
         return $user;
     }
 
