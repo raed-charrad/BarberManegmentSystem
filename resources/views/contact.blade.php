@@ -18,12 +18,6 @@
     </section>
     <!-- END section -->
 
-
-
-    
-
-
-   
  <section class="quick-info element-animate" data-animate-effect="fadeInLeft">
       <div class="container">
         <div class="row">

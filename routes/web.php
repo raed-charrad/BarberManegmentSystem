@@ -28,7 +28,6 @@ Route::get('/hairstyle', function () {
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     /**
@@ -37,4 +36,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/email/verify', [App\Http\Controllers\VerificationController::class,'show'])->name('verification.notice');
     Route::get('/email/verify/{id}/{hash}', [App\Http\Controllers\VerificationController::class,'verify'])->name('verification.verify')->middleware(['signed']);
     Route::post('/email/resend', [App\Http\Controllers\VerificationController::class,'resend'])->name('verification.resend');
+    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index' )->name('dashboard');
+
 });

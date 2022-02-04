@@ -40,9 +40,16 @@
                                 </li>
                             @endif
                         @else
-                        <li class="nav-item">
-                              <a class="nav-link" href="/home">Admin</a>
+                        @if(Auth::user()->hasRole('admin'))
+                           <li class="nav-item">
+                              <a class="nav-link" href="/dashboard">Dashboard</a>
                             </li>
+                        @elseif(Auth::user()->hasRole('stylist'))
+                            <li class="nav-item">
+                              <a class="nav-link" href="/dashboard">Stylist</a>
+                            </li>
+                        @endif
+
                             <li class="nav-item dropdown">
                             
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
