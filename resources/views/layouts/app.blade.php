@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('fonts/fontawesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
 <body>
     <div id="app">

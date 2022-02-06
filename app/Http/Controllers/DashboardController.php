@@ -14,7 +14,7 @@ class DashboardController extends Controller
         }elseif((Auth::user()->hasRole('stylist'))&&(Auth::user()->hasVerifiedEmail())){
             return view('stylistDash');
         }elseif(Auth::user()->hasRole('admin')){
-            return view('dashboard');
+            return view('vue');
         }
     }
 }
