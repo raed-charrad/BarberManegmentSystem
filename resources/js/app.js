@@ -3,13 +3,22 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-import '@fortawesome/fontawesome-free/css/all.css';
+ import '@fortawesome/fontawesome-free/css/all.css';
  import VueSidebarMenu from 'vue-sidebar-menu'
  import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+ import VueRouter from 'vue-router'
+ import { library } from '@fortawesome/fontawesome-svg-core'
+ import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
  require('./bootstrap');
- 
+
+ library.add(faCoffee)
  window.Vue = require('vue').default;
  Vue.use(VueSidebarMenu)
+ Vue.use(VueRouter)
+ Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,6 +30,24 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import services from './components/ExampleComponent';
+import user from './components/dashboardAdmin';
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/servises',
+            name: 'services',
+            component: services
+        },
+        {
+            path: '/CRUDuser',
+            name: 'user',
+            component: user
+        },
+    ],
+});
+
 
 Vue.component('example-component', require('./components/dashboardAdmin.vue').default);
 
@@ -32,4 +59,5 @@ Vue.component('example-component', require('./components/dashboardAdmin.vue').de
 
 const app = new Vue({
     el: '#app',
+    router,
 });

@@ -16,15 +16,11 @@
     <link rel="stylesheet" href="{{asset('fonts/fontawesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
 <body>
-    <div id="app">
             @include('layouts.partials.navbar')
             @yield('content')
             @include('layouts.partials.footer')
-
-    </div>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.0.js"></script>
     <script src="js/popper.min.js"></script>

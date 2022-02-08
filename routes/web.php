@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Input;
+use App\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 /*
@@ -28,7 +29,7 @@ Route::get('/hairstyle', function () {
 
 Auth::routes(['verify'=>true]);
 
-
+Route::post('/home','HomeController@upload');
 Route::group(['middleware' => ['auth']], function() {
     /**
     * Verification Routes

@@ -39,7 +39,39 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="tel" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="tel" type="text" class="form-control @error('tel') is-invalid @enderror" name="phone"  value="{{ old('phone') }}" required autocomplete="phone">
+                                @error('tel')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="cin" class="col-md-4 col-form-label text-md-end">{{ __('CIN number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="cin" type="text" class="form-control @error('cin') is-invalid @enderror" name="cin" value="{{ old('cin') }}" required autocomplete="cin" >
+                                @error('cin')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="adress" class="col-md-4 col-form-label text-md-end">{{ __('Adress') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') }}" required autocomplete="adress" >
+                            </div>
+                        </div>
+                        
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -69,7 +101,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -49,6 +49,8 @@
                               <a class="nav-link" href="/dashboard">Stylist</a>
                             </li>
                         @endif
+                        <li class="nav-item">
+                        </li>
 
                             <li class="nav-item dropdown">
                             
@@ -75,3 +77,4 @@
        </div>
      </nav>
       </header>
+      
