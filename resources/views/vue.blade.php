@@ -21,49 +21,58 @@
 <body>
             @include('layouts.partials.navbar')
             <div id="app">
-    <sidebar-menu
-      :collapsed="false"
-      :menu='[
-        {
-          header: true,
-          title: "Dashboard",
-          hiddenOnCollapse: true,
-        },
-        {
-          title: "User",
-          icon: "fa fa-user",
-          href: "/CRUDuser",
+                <sidebar-menu
+                :collapsed="false"
+                :menu='[
+                    {
+                    header: true,
+                    title: "Dashboard",
+                    hiddenOnCollapse: true,
+                    },
+                    {
+                    title: "User",
+                    icon: "fa fa-user",
+                    href: "/CRUDuser",
 
-        },
-        {
-          title: "Stylists",
-          icon: "fa fa-user",
-          child: [
-            {
-              href: "/panel/group_user_list",
-              title: "manage Stylists",
-            },
-            {
-              href: "/panel/group_user_list",
-              title: "Add Stylist",
-            },
-          ],
-        },
-        {
-          title: "Servises",
-          icon: "fa fa-list",
-          href: "/servises",
-        },
-        {
-          title: "Pers",
-          icon: "fa fa-headset",
-          href: "/panel/pers",
-        },
-      ]'
-      :show-one-child="true"
-    ></sidebar-menu>
-    <router-view></router-view>
-</div>
+                    },
+                    {
+                    title: "Stylists",
+                    icon: "fa fa-user",
+                    child: [
+                        {
+                        href: "/panel/group_user_list",
+                        title: "manage Stylists",
+                        },
+                        {
+                        href: "/panel/group_user_list",
+                        title: "Add Stylist",
+                        },
+                    ],
+                    },
+                    {
+                    title: "Servises",
+                    icon: "fa fa-list",
+                    child: [
+                        {
+                        href: "/servises",
+                        title: "All Services",
+                        },
+                        {
+                        href: "/create",
+                        title: "Add Service",
+                        },
+                    ],
+                    },
+                    {
+                    title: "Pers",
+                    icon: "fa fa-headset",
+                    href: "/panel/pers",
+                    },
+                ]'
+                :show-one-child="true"
+                ></sidebar-menu>
+                <router-view></router-view>
+            </div>
 
 
     <script src="js/jquery-3.2.1.min.js"></script>
