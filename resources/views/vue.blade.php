@@ -40,7 +40,7 @@
                     icon: "fa fa-user",
                     child: [
                         {
-                        href: "/panel/group_user_list",
+                        href: "/allStylists",
                         title: "manage Stylists",
                         },
                         {

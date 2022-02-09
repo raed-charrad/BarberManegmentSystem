@@ -32,7 +32,7 @@
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 import services from './components/allServices';
-import user from './components/dashboardAdmin';
+import stylists from './components/allStylists';
 import create from './components/createServices';
 import edit from './components/editServices';
 
@@ -45,9 +45,9 @@ const router = new VueRouter({
             component: services
         },
         {
-            path: '/CRUDuser',
-            name: 'user',
-            component: user
+            path: '/allStylists',
+            name: 'allStylists',
+            component: stylists
         },
         {
             name: 'create',

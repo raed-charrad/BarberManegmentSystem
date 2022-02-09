@@ -24,3 +24,8 @@ Route::prefix('/service')->namespace('App\Http\Controllers')->group(function(){
     Route::delete('/{id}', 'ServisesController@delete');
     Route::get('/{id}', 'ServisesController@show');
 });
+Route::prefix('/stylist')->namespace('App\Http\Controllers')->group(function(){
+    Route::get('/','StylistController@index');
+    Route::delete('/{id}', 'StylistController@delete');
+    Route::put('/verify/{id}', 'StylistController@verify');
+});

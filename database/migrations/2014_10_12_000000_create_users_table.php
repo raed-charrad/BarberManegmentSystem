@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('cin');
             $table->string('adress');
             $table->string('password');
+            $table->boolean('approved')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
