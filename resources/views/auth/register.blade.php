@@ -7,7 +7,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -40,11 +39,11 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="tel" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tel" type="text" class="form-control @error('tel') is-invalid @enderror" name="phone"  value="{{ old('phone') }}" required autocomplete="phone">
-                                @error('tel')
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"  value="{{ old('phone') }}" required autocomplete="phone">
+                                @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -71,7 +70,7 @@
                                 <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') }}" required autocomplete="adress" >
                             </div>
                         </div>
-                        
+
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -101,6 +100,14 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="row collapse">
+                            <ul class="alert-box warning radius">
+                                @foreach($errors->all() as $error)
+                                    <li> {{ $error }} </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -113,5 +120,16 @@
             </div>
         </div>
     </div>
+    <!--  Error handle -->
+    @if($errors->any())
+    <div class="row collapse">
+        <ul class="alert-box warning radius">
+            @foreach($errors->all() as $error)
+                <li> {{ $error }} </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
 </div>
 @endsection

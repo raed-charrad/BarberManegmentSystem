@@ -35,10 +35,15 @@ import services from './components/allServices';
 import stylists from './components/allStylists';
 import create from './components/createServices';
 import edit from './components/editServices';
-
+import user from './components/allUsers';
 const router = new VueRouter({
     mode: 'history',
     routes: [
+        {
+            path: '/allUsers',
+            name: 'User',
+            component: user
+        },
         {
             path: '/servises',
             name: 'services',

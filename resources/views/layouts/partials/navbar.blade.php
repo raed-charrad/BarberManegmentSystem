@@ -1,6 +1,6 @@
 
 <header role="banner">
- 
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
        <div class="container">
          <a class="navbar-brand" href="/">Alotan</a>
@@ -10,15 +10,12 @@
                <a class="nav-link" href="/">Home</a>
              </li>
              <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="hairstyle.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Haircut</a>
+               <a class="nav-link dropdown-toggle" href="/hairstyle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Haircut</a>
                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                 <a class="dropdown-item" href="/hairstyle">Crew Cut</a>
-                 <a class="dropdown-item" href="/hairstyle">Regular Hair Cut</a>
-                 <a class="dropdown-item" href="/hairstyle">Shampoo + Cut</a>
-                 <a class="dropdown-item" href="/hairstyle">Beard Trim with Razor</a>
-                 <a class="dropdown-item" href="/hairstyle">Hair Color</a>
+                @foreach($services as $service)
+                <a class="dropdown-item"  href="/hairstyle" value="{{ $service->id }}">{{ $service->title }}</a>
+                @endforeach
                </div>
-
              </li>
              <li class="nav-item">
                <a class="nav-link active" href="/about">About</a>
@@ -26,7 +23,7 @@
              <li class="nav-item">
                <a class="nav-link" href="/contact">Contact</a>
              </li>
-         
+
             @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -53,7 +50,7 @@
                         </li>
 
                             <li class="nav-item dropdown">
-                            
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -72,9 +69,8 @@
                             </li>
                         @endguest
            </ul>
-           
+
          </div>
        </div>
      </nav>
       </header>
-      

@@ -32,7 +32,7 @@
                     {
                     title: "User",
                     icon: "fa fa-user",
-                    href: "/CRUDuser",
+                    href: "/allUsers",
 
                     },
                     {

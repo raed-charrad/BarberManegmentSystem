@@ -29,3 +29,7 @@ Route::prefix('/stylist')->namespace('App\Http\Controllers')->group(function(){
     Route::delete('/{id}', 'StylistController@delete');
     Route::put('/verify/{id}', 'StylistController@verify');
 });
+Route::prefix('/user')->namespace('App\Http\Controllers')->group(function(){
+    Route::get('/','userController@index');
+    Route::delete('/{id}', 'StylistController@delete');
+});

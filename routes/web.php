@@ -1,8 +1,10 @@
 <?php
-use Illuminate\Support\Facades\Input;
-use App\User;
-use Illuminate\Support\Facades\Route;
+use App\services;
 use App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,25 +17,33 @@ use App\Http\Controllers;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $services = DB::table('services')->select('id','title')->get();
+
+    return view('welcome',['services'=>$services]);
 });
 Route::get('/about', function () {
-    return view('about');
+    $services = DB::table('services')->select('id','title')->get();
+
+    return view('about',['services'=>$services]);
 });
 Route::get('/contact', function () {
-    return view('contact');
+    $services = DB::table('services')->select('id','title')->get();
+
+    return view('contact',['services'=>$services]);
 });
 Route::get('/hairstyle', function () {
-    return view('hairstyle');
+    $services = DB::table('services')->select('id','title')->get();
+    return view('hairstyle',['services'=>$services]);
 });
 
 Auth::routes(['verify'=>true]);
 
-Route::post('/home','HomeController@upload');
+// Route::post('/home','HomeController@upload');
 Route::group(['middleware' => ['auth']], function() {
     /**
     * Verification Routes
     */
+
     Route::get('/email/verify', [App\Http\Controllers\VerificationController::class,'show'])->name('verification.notice');
     Route::get('/email/verify/{id}/{hash}', [App\Http\Controllers\VerificationController::class,'verify'])->name('verification.verify')->middleware(['signed']);
     Route::post('/email/resend', [App\Http\Controllers\VerificationController::class,'resend'])->name('verification.resend');

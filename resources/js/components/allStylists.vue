@@ -2,9 +2,7 @@
     <div class="container">
         <div class="table-responsive">
         <h2 class="text-center">Stylist List</h2>
- 
-        <table class="table table-striped table-hover">
-            
+        <table class="table table-striped table-hover">  
             <thead>
             <tr>
                 <th>Name</th>
@@ -14,7 +12,6 @@
                 <th>Adress</th> 
                 <th>Image</th> 
                 <th>Actions</th> 
-
             </tr>
             </thead>
             <tbody>
