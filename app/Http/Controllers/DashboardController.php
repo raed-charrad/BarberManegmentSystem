@@ -12,9 +12,8 @@ class DashboardController extends Controller
             $services = DB::table('services')->select('id','title')->get();
 
             return view('welcome',['services'=>$services]);
-        }elseif((Auth::user()->hasRole('stylist'))&&(Auth::user()->hasVerifiedEmail())){
+        }elseif((Auth::user()->hasRole('stylist'))&&(Auth::user()->hasVerifiedEmail())&&(Auth::user()->approved==1)){
             $services = DB::table('services')->select('id','title')->get();
-
             return view('stylistDash',['services'=>$services]);
         }elseif((Auth::user()->hasRole('admin'))&&(Auth::user()->hasVerifiedEmail())){
             $services = DB::table('services')->select('id','title')->get();
