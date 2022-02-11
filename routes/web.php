@@ -23,7 +23,6 @@ Route::get('/', function () {
 });
 Route::get('/about', function () {
     $services = DB::table('services')->select('id','title')->get();
-
     return view('about',['services'=>$services]);
 });
 Route::get('/contact', function () {
@@ -31,6 +30,8 @@ Route::get('/contact', function () {
 
     return view('contact',['services'=>$services]);
 });
+Route::post('/contactsend', 'App\Http\Controllers\ContactUsFormController@ContactUsForm')->name('contact.store');
+
 Route::get('/hairstyle', function () {
     $services = DB::table('services')->select('id','title')->get();
     return view('hairstyle',['services'=>$services]);

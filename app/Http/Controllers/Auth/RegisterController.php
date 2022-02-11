@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -91,5 +92,4 @@ class RegisterController extends Controller
         DB::table('role_user')->insert(['role_id'=>$data['role_id'],'user_id'=>$user->id,'user_type'=>'App\Models\User']);
         return $user;
     }
-
 }
