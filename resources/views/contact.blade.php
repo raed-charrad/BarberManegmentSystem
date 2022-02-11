@@ -18,7 +18,7 @@
     </section>
     <!-- END section -->
 
- <section class="quick-info element-animate" data-animate-effect="fadeInLeft">
+    <section class="quick-info element-animate" data-animate-effect="fadeInLeft">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 bgcolor">
@@ -56,37 +56,71 @@
       </div>
     </section>
     <!-- END section -->
-    
 
     <section class="site-section">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <form action="#" method="post">
+            @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{Session::get('success')}}
+            </div>
+             @endif
+            <form action="{{ route('contact.store') }}" method="post">
+                @csrf
                   <div class="row">
                     <div class="col-md-4 form-group">
                       <label for="name">Name</label>
-                      <input type="text" id="name" class="form-control ">
+                      <input name="name" type="text" id="name" class="form-control {{ $errors->has('name') ? 'error' : '' }}">
+                      @if ($errors->has('name'))
+                      <div class="error">
+                          {{ $errors->first('name') }}
+                      </div>
+                      @endif
                     </div>
                     <div class="col-md-4 form-group">
                       <label for="phone">Phone</label>
-                      <input type="text" id="phone" class="form-control ">
+                      <input type="text" name="phone" id="phone" class="form-control {{ $errors->has('phone') ? 'error' : '' }}">
+                      @if ($errors->has('phone'))
+                      <div class="error">
+                          {{ $errors->first('phone') }}
+                      </div>
+                      @endif
                     </div>
                      <div class="col-md-4 form-group">
                       <label for="email">Email</label>
-                      <input type="email" id="email" class="form-control ">
+                      <input type="email" name="email" id="email" class="form-control {{ $errors->has('email') ? 'error' : '' }} ">
+                      @if ($errors->has('email'))
+                      <div class="error">
+                          {{ $errors->first('email') }}
+                      </div>
+                      @endif
                     </div>
+
                   </div>
-                   
+                  <div class="col-md-4 form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" name="subject" id="subject" class="form-control {{ $errors->has('subject') ? 'error' : '' }}">
+                    @if ($errors->has('subject'))
+                    <div class="error">
+                        {{ $errors->first('subject') }}
+                    </div>
+                    @endif
+                  </div>
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="message">Write Message</label>
-                      <textarea name="message" id="message" class="form-control " cols="30" rows="8"></textarea>
+                      <textarea name="message" id="message" class="form-control {{ $errors->has('message') ? 'error' : '' }} " cols="30" rows="8"></textarea>
                     </div>
+                    @if ($errors->has('message'))
+                    <div class="error">
+                        {{ $errors->first('message') }}
+                    </div>
+                    @endif
                   </div>
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <input type="submit" value="Send Message" class="btn btn-primary">
+                      <input type="submit"  name="send" value="Submit"  class="btn btn-primary">
                     </div>
                   </div>
                 </form>
@@ -105,7 +139,7 @@
            <p><button type="button" class="btn btn-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Make an Appointment</button></p>
           @else
           <p> <a href="{{ route('login') }}"><button type="button" class="btn btn-black" >Make an Appointment</button></a></p>
-          @endif          
+          @endif
         </div>
         </div>
       </div>
