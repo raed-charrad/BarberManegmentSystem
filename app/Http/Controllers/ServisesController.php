@@ -28,15 +28,9 @@ class ServisesController extends Controller
 
     }
     public function update(Request $request,$id){
-        print_r(        $data = $request->validate([
-            'avatar'   => ['image'],
-            'image'=>['required'],
-            'title'     => ['required', 'string'],
-            'price'    => ['required' ],
-            'description' => ['required'],
-        ]));
+
         $data =array(
-            'avatar' => $request['avatar'],
+            'avatar' => $request->input('avatar'),
             'image' => $request->input('image'),
             'title' => $request->input('title'),
             'price' => $request->input('price'),
@@ -45,10 +39,11 @@ class ServisesController extends Controller
         );
         print_r($data);
         $file = $request->file('avatar');
+        if(!empty($file)){
         $name = '/avatars/' . uniqid() . '.' . $file->extension();
         $file->storePubliclyAs('public', $name);
         $data['image'] = $name;
-
+    }
         $service = services::find($id);
         $service->update($data);
         return response()->json('Product updated!');
