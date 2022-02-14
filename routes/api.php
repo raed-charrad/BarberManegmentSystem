@@ -20,9 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('/service')->namespace('App\Http\Controllers')->group(function(){
     Route::get('/','ServisesController@index');
     Route::post('/','ServisesController@create');
-    Route::put('/{id}', 'ServisesController@update');
+    Route::post('/{id}', 'ServisesController@update');
     Route::delete('/{id}', 'ServisesController@delete');
     Route::get('/{id}', 'ServisesController@show');
+    Route::post('client/store','ServisesController@store')->name('client.store');
+
 });
 Route::prefix('/stylist')->namespace('App\Http\Controllers')->group(function(){
     Route::get('/','StylistController@index');
@@ -32,4 +34,8 @@ Route::prefix('/stylist')->namespace('App\Http\Controllers')->group(function(){
 Route::prefix('/user')->namespace('App\Http\Controllers')->group(function(){
     Route::get('/','userController@index');
     Route::delete('/{id}', 'StylistController@delete');
+});
+Route::prefix('/appointments')->namespace('App\Http\Controllers')->group(function(){
+    Route::get('/','AppointmentControler@index');
+    Route::delete('/{id}', 'AppointmentControler@delete');
 });
