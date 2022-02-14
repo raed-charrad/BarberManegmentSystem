@@ -36,6 +36,7 @@ import stylists from './components/allStylists';
 import create from './components/createServices';
 import edit from './components/editServices';
 import user from './components/allUsers';
+import appointment from './components/appointments';
 const router = new VueRouter({
     mode: 'history',
     routes: [
@@ -63,6 +64,11 @@ const router = new VueRouter({
             name: 'edit',
             path: '/edit/:id',
             component: edit
+        },
+        {
+            path: '/appointment',
+            name: 'appointment',
+            component: appointment
         }
     ],
 });

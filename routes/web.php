@@ -18,23 +18,43 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $services = DB::table('services')->select('id','title')->get();
-
-    return view('welcome',['services'=>$services]);
+    $stylists = DB::table('users')
+    ->join('role_user', 'users.id', '=', 'role_user.user_id')
+    ->select('id','name')
+    ->where('role_user.role_id', '=', '2')
+    ->get();
+    return view('welcome',['services'=>$services,'stylists'=>$stylists]);
 });
 Route::get('/about', function () {
     $services = DB::table('services')->select('id','title')->get();
-    return view('about',['services'=>$services]);
+    $stylists = DB::table('users')
+    ->join('role_user', 'users.id', '=', 'role_user.user_id')
+    ->select('id','name')
+    ->where('role_user.role_id', '=', '2')
+    ->get();
+    return view('about',['services'=>$services,'stylists'=>$stylists]);
 });
 Route::get('/contact', function () {
     $services = DB::table('services')->select('id','title')->get();
-
-    return view('contact',['services'=>$services]);
+    $stylists = DB::table('users')
+    ->join('role_user', 'users.id', '=', 'role_user.user_id')
+    ->select('id','name')
+    ->where('role_user.role_id', '=', '2')
+    ->get();
+    return view('contact',['services'=>$services,'stylists'=>$stylists]);
 });
 Route::post('/contactsend', 'App\Http\Controllers\ContactUsFormController@ContactUsForm')->name('contact.store');
+Route::post('/appointmentSend', 'App\Http\Controllers\AppointmentControler@appointmentForm')->name('appointment.store');
 
 Route::get('/hairstyle', function () {
     $services = DB::table('services')->select('id','title')->get();
-    return view('hairstyle',['services'=>$services]);
+    $stylists = DB::table('users')
+    ->join('role_user', 'users.id', '=', 'role_user.user_id')
+    ->select('id','name')
+    ->where('role_user.role_id', '=', '2')
+    ->get();
+
+    return view('hairstyle',['services'=>$services,'stylists'=>$stylists]);
 });
 
 Auth::routes(['verify'=>true]);
