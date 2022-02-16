@@ -1,8 +1,3 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
  import VueAxios from 'vue-axios';
  import axios from 'axios';
  import '@fortawesome/fontawesome-free/css/all.css';
@@ -20,23 +15,14 @@
  Vue.use(VueAxios, axios);
  Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-import services from './components/allServices';
-import stylists from './components/allStylists';
-import create from './components/createServices';
-import edit from './components/editServices';
-import user from './components/allUsers';
-import appointment from './components/appointments';
+import services from './components/admin/allServices';
+import stylists from './components/admin/allStylists';
+import create from './components/admin/createServices';
+import edit from './components/admin/editServices';
+import user from './components/admin/allUsers';
+import appointment from './components/admin/appointments';
+import appointmentStylist from './components/stylist/appointmentStylist';
+import commition from './components/stylist/commitionList'
 const router = new VueRouter({
     mode: 'history',
     routes: [
@@ -73,15 +59,38 @@ const router = new VueRouter({
     ],
 });
 
+const routerS = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/servises',
+            name: 'services',
+            component: services
+        },
+        {
+            path: '/appointment',
+            name: 'appointment',
+            component: appointmentStylist
+        },
+        {
+            path: '/commisionStylist',
+            name: 'commition',
+            component: commition
+        }
 
-Vue.component('example-component', require('./components/dashboardAdmin.vue').default);
+    ],
+});
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+
+Vue.component('example-component', require('./components/admin/dashboardAdmin.vue').default);
+
+const app1 = new Vue({
+    el: '#appStylist',
+    router:routerS,
+ });
+
+
 const app = new Vue({
     el: '#app',
-    router,
+    router:router,
 });

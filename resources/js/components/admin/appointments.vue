@@ -19,7 +19,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="appointment in appointments" :key="appointment.id">
+            <tr v-for="appointment in orderedAppointments" :key="appointment.id">
                 <td>{{ appointment.ClientName }}</td>
                 <td>{{ appointment.StylistName }}</td>
                 <td>{{ appointment.title}}</td>
@@ -29,13 +29,13 @@
 
                 <td >
                     <div class="btn-group">
-                        <button class="btn btn-danger" v-if="appointment.status ==0" disabled>Not Done</button>
-                        <button class="btn btn-success" v-else disabled>Done</button>
+                        <button class="btn btn-danger" v-if="appointment.status ==0" disabled><i class="fas fa-xmark"></i></button>
+                        <button class="btn btn-success" v-else disabled><i class="fas fa-check"></i></button>
                     </div>
                 </td>
                 <td>
                     <div class="btn-group" role="group">
-                        <button class="btn btn-danger" @click="deleteAppointment(appointment.id)" >Delete</button>
+                        <button class="btn btn-danger" @click="deleteAppointment(appointment.id)" ><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </td>
             </tr>
@@ -58,6 +58,11 @@
                 .then(response => {
                     this.appointments = response.data;
                 });
+        },
+        computed: {
+        orderedAppointments: function () {
+            return _.orderBy(this.appointments, 'appointmentDate')
+        }
         },
         methods: {
             deleteAppointment(id) {

@@ -2,16 +2,16 @@
     <div class="container">
         <div class="table-responsive">
         <h2 class="text-center">Stylist List</h2>
-        <table class="table table-striped table-hover">  
+        <table class="table table-striped table-hover">
             <thead>
             <tr>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>CIN</th>
-                <th>Adress</th> 
-                <th>Image</th> 
-                <th>Actions</th> 
+                <th>Adress</th>
+                <th>Image</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -34,7 +34,7 @@
         </div>
     </div>
 </template>
- 
+
 <script>
     export default {
         data() {
@@ -44,7 +44,6 @@
         },
         created() {
         this.fetchAll();
-
         },
         methods: {
             fetchAll() {
@@ -54,7 +53,7 @@
                     this.Stylists = response.data;
                 });
             },
-            deleteStylist(id) { 
+            deleteStylist(id) {
                 this.axios
                     .delete(`http://localhost:8000/api/stylist/${id}`)
                     .then(response => {

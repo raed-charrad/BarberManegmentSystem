@@ -39,3 +39,11 @@ Route::prefix('/appointments')->namespace('App\Http\Controllers')->group(functio
     Route::get('/','AppointmentControler@index');
     Route::delete('/{id}', 'AppointmentControler@delete');
 });
+Route::prefix('/appointmentsStylist')->namespace('App\Http\Controllers')->group(function(){
+    Route::delete('/{id}', 'AppointmentControler@delete');
+    Route::put('/verify/{id}', 'AppointmentControler@verify');
+    Route::put('/inVerify/{id}', 'AppointmentControler@inVerify');
+});
+Route::prefix('/commisionStylist')->namespace('App\Http\Controllers')->group(function(){
+
+});

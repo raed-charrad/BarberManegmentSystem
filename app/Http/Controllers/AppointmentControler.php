@@ -13,15 +13,47 @@ use Illuminate\Support\Facades\Auth;
 class AppointmentControler extends Controller
 {
 
+
     public function index(){
+
         $appointment = DB::table('appointments')
             ->join('users', 'appointments.idClient', '=', 'users.id')
             ->join('users as u', 'appointments.idStylist', '=', 'u.id')
             ->join('services', 'appointments.idServices', '=', 'services.id')
             ->select('appointments.status','appointments.id','services.title as title','appointments.appointmentDate','appointments.created_at','users.name as ClientName','u.name as StylistName','appointments.remark')
             ->get();
-
         return response()->json($appointment,200);
+    }
+    public function showAppointments(){
+        $appointment = DB::table('appointments')
+            ->join('users', 'appointments.idClient', '=', 'users.id')
+            ->join('users as u', 'appointments.idStylist', '=', 'u.id')
+            ->join('services', 'appointments.idServices', '=', 'services.id')
+            ->select('appointments.status','appointments.id','services.title as title','appointments.appointmentDate','appointments.created_at','users.name as ClientName','u.name as StylistName','appointments.remark')
+            ->where('appointments.idStylist','=',Auth::user()->id)
+            ->get();
+        return response()->json($appointment,200);
+    }
+    public function commition(){
+        $commition=DB::table('appointments')
+        ->join('services','appointments.idServices','=','services.id')
+        ->join('users', 'appointments.idClient', '=', 'users.id')
+        ->select('services.title as title','appointments.appointmentDate','users.name as ClientName','services.price as price')
+        ->where('appointments.idStylist','=',Auth::user()->id)
+        ->where('appointments.status','=',1)
+        ->get();
+        return response()->json($commition,200);
+
+    }
+    public function verify($id){
+        $appointment=appointments::find($id);
+        $appointment->status=1;
+        $appointment->save();
+    }
+    public function inVerify($id){
+        $appointment=appointments::find($id);
+        $appointment->status=0;
+        $appointment->save();
     }
     public function delete($id, Request $request){
 
@@ -38,7 +70,6 @@ class AppointmentControler extends Controller
 
          ]);
         //  Store data in database
-
         appointments::create([
             'idClient' =>Auth::user()->id,
             'idStylist'=>$request->input('stylist'),
@@ -62,6 +93,6 @@ class AppointmentControler extends Controller
             $message->from($user->email);
             $message->to('admin@admin.com', 'Admin')->subject($user->name.' appointment');
         });
-        return back()->with('success', 'We have received your appointment and would like to thank you for choosing to us.');
+        return back()->with('success', 'We have received your appointment and would like to thank you for choosing  us.');
     }
 }

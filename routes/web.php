@@ -45,6 +45,8 @@ Route::get('/contact', function () {
 });
 Route::post('/contactsend', 'App\Http\Controllers\ContactUsFormController@ContactUsForm')->name('contact.store');
 Route::post('/appointmentSend', 'App\Http\Controllers\AppointmentControler@appointmentForm')->name('appointment.store');
+Route::get('/api/appointmentsStylist', 'App\Http\Controllers\AppointmentControler@showAppointments');
+Route::get('/api/commisionStylist', 'App\Http\Controllers\AppointmentControler@commition');
 
 Route::get('/hairstyle', function () {
     $services = DB::table('services')->select('id','title')->get();
