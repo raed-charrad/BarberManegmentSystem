@@ -10,6 +10,20 @@
             hiddenOnCollapse: true,
             },
             {
+            title: "Profile",
+            icon: "fa fa-user",
+            child: [
+                    {
+                    href: "/",
+                    title: "Vue Profile",
+                    },
+                    {
+                    href: "/editProfile",
+                    title: "Edit Profile",
+                    },
+                ],
+            },
+            {
             title: "Servises",
             icon: "fa fa-list",
             href: "/servises",
