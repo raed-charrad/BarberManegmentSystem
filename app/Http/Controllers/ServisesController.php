@@ -7,7 +7,7 @@ use App\Models\services;
 class ServisesController extends Controller
 {
     public function index(){
-        $services=services::orderBy('updated_at','DESC')->get();
+        $services=services::orderBy('updated_at','DESC')->paginate(3);
         return response()->json($services,200);
     }
     public function create(Request $request){

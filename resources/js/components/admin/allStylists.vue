@@ -42,18 +42,29 @@
             </tr>
             </tbody>
         </table>
-        <div class="clearfix">
-				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-				<ul class="pagination">
-					<li class="page-item disabled"><a href="#">Previous</a></li>
-					<li class="page-item"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item active"><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">Next</a></li>
-				</ul>
-			</div>
+                 <nav class="row">
+            <ul class="pagination w-auto mx-auto">
+                <li :class="[{ disabled: !pagination.prev_page_url }]" class="page-item">
+                    <a
+                        @click="getResults(pagination.prev_page_url)"
+                        class="btn page-link"
+                    >Precedent</a>
+                </li>
+                <li class="page-item">
+                    <a
+                        class="page-link text-dark"
+                        href="#"
+                    >{{ pagination.current_page + "/" + pagination.last_page }}</a>
+                </li>
+                <li :class="[{ disabled: !pagination.next_page_url }]" class="page-item">
+                    <a
+                        @click="getResults(pagination.next_page_url)"
+                        class="btn page-link"
+                    >Suivant</a>
+                </li>
+            </ul>
+        </nav>
+
         </div>
     </div>
 </template>
@@ -63,41 +74,52 @@
         data() {
             return {
                 Stylists: [],
-                 multipleSelect:false,
-                sty:[]
+                multipleSelect:false,
+                sty:[],
+                pagination: {},
             }
         },
         created() {
-        this.fetchAll();
+        this.getResults();
         },
         methods: {
-            fetchAll() {
-                   this.axios
-                .get('http://localhost:8000/api/stylist/')
-                .then(response => {
-                    this.Stylists = response.data;
-                });
+            getResults(page_url='/api/stylist/') {
+                let vm = this;
+                axios.get(page_url)
+                    .then(res=>res.data)
+                    .then(res => {
+                        this.Stylists = res.data;
+                        vm.makePagination(res);
+                    });
+            },
+            makePagination(meta) {
+                this.pagination = {
+                    current_page: meta.current_page,
+                    current_page_url: 'http://localhost:8000/api/stylist/?page=' + meta.current_page,
+                    last_page: meta.last_page,
+                    next_page_url: meta.next_page_url,
+                    prev_page_url: meta.prev_page_url
+                };
             },
             deleteStylist(id) {
-                                if(window.confirm("do you confirm that you want to delete")){
-
-                this.axios
-                    .delete(`http://localhost:8000/api/stylist/${id}`)
-                    .then(response => {
-                        let i = this.Stylists.map(data => data.id).indexOf(id);
-                        this.Stylists.splice(i, 1)
-                    });
-                                }
+                if(window.confirm("do you confirm that you want to delete")){
+                    this.axios
+                        .delete(`http://localhost:8000/api/stylist/${id}`)
+                        .then(response => {
+                            let i = this.Stylists.map(data => data.id).indexOf(id);
+                            this.Stylists.splice(i, 1)
+                        });
+                }
             },
             verifyStylist(id) {
                  this.axios
                     .put(`http://localhost:8000/api/stylist/verify/`+id)
-                    .then(()=>{this.fetchAll();});
+                    .then(()=>{this.getResults();});
             },
             selectAll(){
                 if(this.multipleSelect==true){
                     this.sty=[]
-                    for(var i = 0; i < this.Stylists.length;i++){
+                    for(let i = 0 ; i<this.Stylists.length ; i++){
                         this.sty.push(this.Stylists[i].id)
                     }
                 }

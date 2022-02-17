@@ -81,7 +81,7 @@ const routerS = new VueRouter({
 
     ],
 });
-
+Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('sidebar',require('./components/stylist/navBar.vue').default);
 Vue.component('side',require('./components/admin/sideBar.vue').default);
 

@@ -50,19 +50,9 @@
                 </td>
             </tr>
             </tbody>
+                <pagination :data="appointments" @pagination-change-page="getResults" class="mt-5"></pagination>
+
         </table>
-         <div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Previous</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                    </ul>
-            </div>
         </div>
     </div>
 </template>
@@ -81,7 +71,7 @@
         },
         computed: {
         orderedAppointments: function () {
-            return _.orderBy(this.appointments, 'appointmentDate')
+            return _.orderBy(this.appointments.data, 'appointmentDate')
         }
         },
         methods: {
@@ -91,6 +81,12 @@
                 .then(response => {
                     this.appointments = response.data;
                 });
+            },
+             getResults(page = 1) {
+                axios.get('http://localhost:8000/api/appointmentsStylist/?page=' + page)
+                    .then(response => {
+                        this.appointments = response.data;
+                    });
             },
             deleteAppointment(id) {
                                 if(window.confirm("do you confirm that you want to delete")){

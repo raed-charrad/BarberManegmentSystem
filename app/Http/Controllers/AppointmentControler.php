@@ -21,7 +21,7 @@ class AppointmentControler extends Controller
             ->join('users as u', 'appointments.idStylist', '=', 'u.id')
             ->join('services', 'appointments.idServices', '=', 'services.id')
             ->select('appointments.status','appointments.id','services.title as title','appointments.appointmentDate','appointments.created_at','users.name as ClientName','u.name as StylistName','appointments.remark')
-            ->get();
+            ->paginate(5);
         return response()->json($appointment,200);
     }
     public function showAppointments(){
@@ -31,7 +31,7 @@ class AppointmentControler extends Controller
             ->join('services', 'appointments.idServices', '=', 'services.id')
             ->select('appointments.status','appointments.id','services.title as title','appointments.appointmentDate','appointments.created_at','users.name as ClientName','u.name as StylistName','appointments.remark')
             ->where('appointments.idStylist','=',Auth::user()->id)
-            ->get();
+            ->paginate(5);
         return response()->json($appointment,200);
     }
     public function commition(){
@@ -41,7 +41,7 @@ class AppointmentControler extends Controller
         ->select('services.title as title','appointments.appointmentDate','users.name as ClientName','services.price as price')
         ->where('appointments.idStylist','=',Auth::user()->id)
         ->where('appointments.status','=',1)
-        ->get();
+        ->paginate(5);
         return response()->json($commition,200);
 
     }

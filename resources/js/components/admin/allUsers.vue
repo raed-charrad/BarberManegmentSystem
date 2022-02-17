@@ -41,18 +41,20 @@
             </tr>
             </tbody>
         </table>
-        <div class="clearfix">
-				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-				<ul class="pagination">
-					<li class="page-item disabled"><a href="#">Previous</a></li>
-					<li class="page-item"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item active"><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">Next</a></li>
-				</ul>
-			</div>
+        <nav class="row">
+            <ul class="pagination w-auto mx-auto">
+                <li :class="[{ disabled: !pagination.prev_page_url }]" class="page-item">
+                    <a @click="getResults(pagination.prev_page_url)" class="btn page-link">Precedent</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="#">{{ pagination.current_page + "/" + pagination.last_page }}</a>
+                </li>
+                <li :class="[{ disabled: !pagination.next_page_url }]" class="page-item">
+                    <a @click="getResults(pagination.next_page_url)" class="btn page-link">Suivant</a>
+                </li>
+            </ul>
+        </nav>
+
         </div>
     </div>
 </template>
@@ -63,15 +65,13 @@
             return {
                 users: [],
                 multipleSelect:false,
-                use:[]
+                use:[],
+                pagination: {},
+
             }
         },
         created() {
-            this.axios
-                .get('http://localhost:8000/api/user/')
-                .then(response => {
-                    this.users = response.data;
-                });
+            this.getResults();
         },
         methods: {
             deleteUser(id) {
@@ -84,6 +84,24 @@
                             this.users.splice(i, 1)
                         });
                 }
+            },
+            getResults(page_url='/api/user/') {
+            let vm = this;
+            axios.get(page_url)
+                .then(res=>res.data)
+                .then(res => {
+                    this.users = res.data;
+                    vm.makePagination(res);
+                });
+            },
+             makePagination(meta) {
+                this.pagination = {
+                    current_page: meta.current_page,
+                    current_page_url: 'http://localhost:8000/api/user/?page=' + meta.current_page,
+                    last_page: meta.last_page,
+                    next_page_url: meta.next_page_url,
+                    prev_page_url: meta.prev_page_url
+                };
             },
             selectAll(){
                 if(this.multipleSelect==true){
