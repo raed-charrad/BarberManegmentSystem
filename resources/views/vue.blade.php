@@ -21,53 +21,8 @@
 <body>
             @include('layouts.partials.navbar')
             <div id="app">
-                <sidebar-menu
-                :collapsed="false"
-                :menu='[
-                    {
-                    header: true,
-                    title: "Dashboard",
-                    hiddenOnCollapse: true,
-                    },
-                    {
-                    title: "User",
-                    icon: "fa fa-user",
-                    href: "/allUsers",
-
-                    },
-                    {
-                    title: "Stylists",
-                    icon: "fa fa-user",
-                    child: [
-                        {
-                        href: "/allStylists",
-                        title: "manage Stylists",
-                        }
-                    ],
-                    },
-                    {
-                    title: "Servises",
-                    icon: "fa fa-list",
-                    child: [
-                        {
-                        href: "/servises",
-                        title: "All Services",
-                        },
-                        {
-                        href: "/create",
-                        title: "Add Service",
-                        },
-                    ],
-                    },
-                    {
-                    title: "Appointments",
-                    icon: "fa fa-list",
-                    href: "/appointment",
-                    },
-                ]'
-                :show-one-child="true"
-                ></sidebar-menu>
-                <router-view></router-view>
+                <side></side>
+                <router-view class="content" id="content"></router-view>
             </div>
 
 

@@ -21,39 +21,8 @@
 <body>
             @include('layouts.partials.navbar')
             <div id="appStylist">
-                <div class="row">
-                    <div class="col-md-3">
-                        <sidebar-menu
-                        :collapsed="false"
-                        :menu='[
-                            {
-                            header: true,
-                            title: "Dashboard",
-                            hiddenOnCollapse: true,
-                            },
-                            {
-                            title: "Servises",
-                            icon: "fa fa-list",
-                            href: "/servises",
-                            },
-                            {
-                            title: "Appointments",
-                            icon: "fa fa-list",
-                            href: "/appointment",
-                            },
-                            {
-                            title: "Commition",
-                            icon: "fa fa-list",
-                            href: "/commisionStylist",
-                            },
-                        ]'
-                        :show-one-child="true"
-                        ></sidebar-menu>
-                    </div>
-                    <div class="col-md-9">
-                        <router-view></router-view>
-                    </div>
-                </div>
+                <sidebar ></sidebar>
+                <router-view class="content" id="content"></router-view>
             </div>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/jquery-migrate-3.0.0.js"></script>

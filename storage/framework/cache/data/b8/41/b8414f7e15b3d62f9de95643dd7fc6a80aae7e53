@@ -1,0 +1,1 @@
+1645107816a:1:{i:0;a:7:{s:2:"id";i:1;s:4:"name";s:5:"admin";s:12:"display_name";s:5:"Admin";s:11:"description";s:5:"Admin";s:10:"created_at";s:27:"2022-02-08T17:30:39.000000Z";s:10:"updated_at";s:27:"2022-02-08T17:30:39.000000Z";s:5:"pivot";a:3:{s:7:"user_id";i:2;s:7:"role_id";i:1;s:9:"user_type";s:15:"App\Models\User";}}}

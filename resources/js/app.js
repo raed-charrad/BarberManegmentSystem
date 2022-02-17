@@ -23,6 +23,7 @@ import user from './components/admin/allUsers';
 import appointment from './components/admin/appointments';
 import appointmentStylist from './components/stylist/appointmentStylist';
 import commition from './components/stylist/commitionList'
+import Vue from 'vue';
 const router = new VueRouter({
     mode: 'history',
     routes: [
@@ -52,7 +53,7 @@ const router = new VueRouter({
             component: edit
         },
         {
-            path: '/appointment',
+            path: '/appointmentAdmin',
             name: 'appointment',
             component: appointment
         }
@@ -81,6 +82,8 @@ const routerS = new VueRouter({
     ],
 });
 
+Vue.component('sidebar',require('./components/stylist/navBar.vue').default);
+Vue.component('side',require('./components/admin/sideBar.vue').default);
 
 Vue.component('example-component', require('./components/admin/dashboardAdmin.vue').default);
 
