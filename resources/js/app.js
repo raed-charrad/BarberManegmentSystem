@@ -23,6 +23,7 @@ import user from './components/admin/allUsers';
 import appointment from './components/admin/appointments';
 import appointmentStylist from './components/stylist/appointmentStylist';
 import commition from './components/stylist/commitionList'
+import editProfile from './components/stylist/editProfile';
 import Vue from 'vue';
 const router = new VueRouter({
     mode: 'history',
@@ -77,7 +78,12 @@ const routerS = new VueRouter({
             path: '/commisionStylist',
             name: 'commition',
             component: commition
-        }
+        },
+        {
+            name: 'editProfile',
+            path: '/editProfile',
+            component: editProfile
+        },
 
     ],
 });

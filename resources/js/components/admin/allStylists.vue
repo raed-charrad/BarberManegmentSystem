@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="table-responsive">
+        <div class="table-responsive mt-3">
         <h2 class="text-center">Stylist List</h2>
          <div class="row">
            <div class="col_md-12 mt-1">
@@ -32,7 +32,7 @@
                 <td>{{ Stylist.phone }}</td>
                 <td>{{ Stylist.cin }}</td>
                 <td>{{ Stylist.adress }}</td>
-                <td>{{ Stylist.image }}</td>
+                <td><img :src =" '../../../storage'+Stylist.image" width="120px"></td>
                 <td>
                     <div class="btn-group" role="group">
                         <button class="btn btn-primary" type="button" v-if="Stylist.approved ==0" @click="verifyStylist(Stylist.id)">Verify</button>

@@ -92,4 +92,5 @@ class RegisterController extends Controller
         DB::table('role_user')->insert(['role_id'=>$data['role_id'],'user_id'=>$user->id,'user_type'=>'App\Models\User']);
         return $user;
     }
+
 }
