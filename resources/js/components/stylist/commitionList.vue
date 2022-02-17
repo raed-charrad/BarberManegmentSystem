@@ -1,7 +1,7 @@
 <template>
     <div class="container">
 
-        <div class="table-responsive">
+        <div class="table-responsive mt-3">
         <h2 class="text-center">Appointments List</h2>
 
         <table class="table table-striped table-hover">

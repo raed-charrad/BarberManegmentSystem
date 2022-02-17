@@ -5,7 +5,7 @@
        <div class="container">
          <a class="navbar-brand" href="/">Alotan</a>
          <div class="collapse navbar-collapse navbar-light " id="navbarsExample05" style="justify-content: flex-end; !important">
-           <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+           <ul class="navbar-nav ml-auto pl-lg-5 pl-0" style="align-items: center">
              <li class="nav-item">
                <a class="nav-link" href="/">Home</a>
              </li>
@@ -46,7 +46,8 @@
                               <a class="nav-link" href="/dashboard">Stylist</a>
                             </li>
                         @endif
-                        <li class="nav-item">
+                        <li class="nav-item" >
+                            <img src="{!!asset('storage'.Auth::user()->image)!!}" width="50" height="50" style="border-radius:50% ">
                         </li>
 
                             <li class="nav-item dropdown">

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="table-responsive">
+        <div class="table-responsive mt-3">
         <h2 class="text-center">Appointments List</h2>
  <div class="row">
            <div class="col_md-12 mt-1">
@@ -107,14 +107,14 @@
                 };
             },
             deleteAppointment(id) {
-                                if(window.confirm("do you confirm that you want to delete")){
-
-                this.axios
-                    .delete(`http://localhost:8000/api/appointmentsStylist/${id}`)
-                    .then(response => {
-                        let i = this.appointments.map(data => data.id).indexOf(id);
-                        this.appointments.splice(i, 1)
-                    });}
+                if(window.confirm("do you confirm that you want to delete")){
+                    this.axios
+                        .delete(`http://localhost:8000/api/appointmentsStylist/${id}`)
+                        .then(response => {
+                            let i = this.appointments.map(data => data.id).indexOf(id);
+                            this.appointments.splice(i, 1)
+                        });
+                }
             },
             verify(id) {
                  this.axios
@@ -126,7 +126,7 @@
                     .put(`http://localhost:8000/api/appointmentsStylist/inVerify/`+id)
                     .then(()=>{this.getResults();});
             },
-             selectAll(){
+            selectAll(){
                 if(this.multipleSelect==true){
                     this.appo=[]
                     for(var i = 0; i < this.appointments.length;i++){

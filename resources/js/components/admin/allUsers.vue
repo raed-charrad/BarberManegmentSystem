@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="table-responsive">
+        <div class="table-responsive mt-3">
         <h2 class="text-center">Users List</h2>
        <div class="row">
            <div class="col_md-12 mt-1">

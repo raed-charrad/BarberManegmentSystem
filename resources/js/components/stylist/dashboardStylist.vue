@@ -1,6 +1,6 @@
 <template>
 <div class="container-xl">
-	<div class="table-responsive">
+        <div class="table-responsive mt-3">
 		<div class="table-wrapper">
 			<div class="table-title " style="background: #435d7d; color: #ffff; padding: 16px 30px;min-width: 100%;margin: 20px 25px 10px;border-radius: 3px 3px 0 0;">
 				<div class="row">

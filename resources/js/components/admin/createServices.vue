@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mt-3">
             <h3 class="text-center">Create Service</h3>
             <div class="row">
                 <div class="col-md-6">
