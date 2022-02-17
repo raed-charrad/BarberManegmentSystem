@@ -19316,63 +19316,81 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       appointments: [],
       multipleSelect: false,
-      appo: []
+      appo: [],
+      pagination: {}
     };
   },
   created: function created() {
-    this.fetchAll();
+    this.getResults();
   },
   computed: {
     orderedAppointments: function orderedAppointments() {
-      return _.orderBy(this.appointments.data, 'appointmentDate');
+      return _.orderBy(this.appointments, 'appointmentDate');
     }
   },
   methods: {
-    fetchAll: function fetchAll() {
+    getResults: function getResults() {
       var _this = this;
 
-      this.axios.get('http://localhost:8000/api/appointmentsStylist/').then(function (response) {
-        _this.appointments = response.data;
+      var page_url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '/api/appointmentsStylist/';
+      var vm = this;
+      axios.get(page_url).then(function (res) {
+        return res.data;
+      }).then(function (res) {
+        _this.appointments = res.data;
+        vm.makePagination(res);
       });
     },
-    getResults: function getResults() {
-      var _this2 = this;
-
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('http://localhost:8000/api/appointmentsStylist/?page=' + page).then(function (response) {
-        _this2.appointments = response.data;
-      });
+    makePagination: function makePagination(meta) {
+      this.pagination = {
+        current_page: meta.current_page,
+        current_page_url: 'http://localhost:8000/api/appointmentsStylist/?page=' + meta.current_page,
+        last_page: meta.last_page,
+        next_page_url: meta.next_page_url,
+        prev_page_url: meta.prev_page_url
+      };
     },
     deleteAppointment: function deleteAppointment(id) {
-      var _this3 = this;
+      var _this2 = this;
 
       if (window.confirm("do you confirm that you want to delete")) {
         this.axios["delete"]("http://localhost:8000/api/appointmentsStylist/".concat(id)).then(function (response) {
-          var i = _this3.appointments.map(function (data) {
+          var i = _this2.appointments.map(function (data) {
             return data.id;
           }).indexOf(id);
 
-          _this3.appointments.splice(i, 1);
+          _this2.appointments.splice(i, 1);
         });
       }
     },
     verify: function verify(id) {
-      var _this4 = this;
+      var _this3 = this;
 
       this.axios.put("http://localhost:8000/api/appointmentsStylist/verify/" + id).then(function () {
-        _this4.fetchAll();
+        _this3.getResults();
       });
     },
     inVerify: function inVerify(id) {
-      var _this5 = this;
+      var _this4 = this;
 
       this.axios.put("http://localhost:8000/api/appointmentsStylist/inVerify/" + id).then(function () {
-        _this5.fetchAll();
+        _this4.getResults();
       });
     },
     selectAll: function selectAll() {
@@ -19455,6 +19473,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -19462,11 +19491,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.fetchAll();
+    this.getResults();
   },
   computed: {
     orderedAppointments: function orderedAppointments() {
-      return _.orderBy(this.appointments.data, 'appointmentDate');
+      return _.orderBy(this.appointments, 'appointmentDate');
     },
     total: function total() {
       return this.orderedAppointments.reduce(function (acc, appointment) {
@@ -19475,20 +19504,26 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    fetchAll: function fetchAll() {
+    getResults: function getResults() {
       var _this = this;
 
-      this.axios.get('http://localhost:8000/api/commisionStylist/').then(function (response) {
-        _this.appointments = response.data;
+      var page_url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '/api/commisionStylist/';
+      var vm = this;
+      axios.get(page_url).then(function (res) {
+        return res.data;
+      }).then(function (res) {
+        _this.appointments = res.data;
+        vm.makePagination(res);
       });
     },
-    getResults: function getResults() {
-      var _this2 = this;
-
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('http://localhost:8000/api/commisionStylist/?page=' + page).then(function (response) {
-        _this2.appointments = response.data;
-      });
+    makePagination: function makePagination(meta) {
+      this.pagination = {
+        current_page: meta.current_page,
+        current_page_url: 'http://localhost:8000/api/commisionStylist/?page=' + meta.current_page,
+        last_page: meta.last_page,
+        next_page_url: meta.next_page_url,
+        prev_page_url: meta.prev_page_url
+      };
     }
   }
 });
@@ -45958,196 +45993,247 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c(
-        "table",
-        { staticClass: "table table-striped table-hover" },
-        [
-          _c("thead", [
-            _c("tr", [
-              _c("th", [
+      _c("table", { staticClass: "table table-striped table-hover" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.multipleSelect,
+                    expression: "multipleSelect",
+                  },
+                ],
+                attrs: { type: "checkbox" },
+                domProps: {
+                  checked: Array.isArray(_vm.multipleSelect)
+                    ? _vm._i(_vm.multipleSelect, null) > -1
+                    : _vm.multipleSelect,
+                },
+                on: {
+                  change: [
+                    function ($event) {
+                      var $$a = _vm.multipleSelect,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.multipleSelect = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.multipleSelect = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.multipleSelect = $$c
+                      }
+                    },
+                    _vm.selectAll,
+                  ],
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Client Name")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Stylist Name")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Service ")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Date")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Registration Date")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Remark")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Status")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Action")]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.orderedAppointments, function (appointment) {
+            return _c("tr", { key: appointment.id }, [
+              _c("td", [
                 _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.multipleSelect,
-                      expression: "multipleSelect",
+                      value: _vm.appo,
+                      expression: "appo",
                     },
                   ],
                   attrs: { type: "checkbox" },
                   domProps: {
-                    checked: Array.isArray(_vm.multipleSelect)
-                      ? _vm._i(_vm.multipleSelect, null) > -1
-                      : _vm.multipleSelect,
+                    value: appointment.id,
+                    checked: Array.isArray(_vm.appo)
+                      ? _vm._i(_vm.appo, appointment.id) > -1
+                      : _vm.appo,
                   },
                   on: {
                     change: [
                       function ($event) {
-                        var $$a = _vm.multipleSelect,
+                        var $$a = _vm.appo,
                           $$el = $event.target,
                           $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = appointment.id,
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
-                            $$i < 0 && (_vm.multipleSelect = $$a.concat([$$v]))
+                            $$i < 0 && (_vm.appo = $$a.concat([$$v]))
                           } else {
                             $$i > -1 &&
-                              (_vm.multipleSelect = $$a
+                              (_vm.appo = $$a
                                 .slice(0, $$i)
                                 .concat($$a.slice($$i + 1)))
                           }
                         } else {
-                          _vm.multipleSelect = $$c
+                          _vm.appo = $$c
                         }
                       },
-                      _vm.selectAll,
+                      _vm.selectSingle,
                     ],
                   },
                 }),
               ]),
               _vm._v(" "),
-              _c("th", [_vm._v("Client Name")]),
+              _c("td", [_vm._v(_vm._s(appointment.ClientName))]),
               _vm._v(" "),
-              _c("th", [_vm._v("Stylist Name")]),
+              _c("td", [_vm._v(_vm._s(appointment.StylistName))]),
               _vm._v(" "),
-              _c("th", [_vm._v("Service ")]),
+              _c("td", [_vm._v(_vm._s(appointment.title))]),
               _vm._v(" "),
-              _c("th", [_vm._v("Date")]),
+              _c("td", [_vm._v(_vm._s(appointment.appointmentDate))]),
               _vm._v(" "),
-              _c("th", [_vm._v("Registration Date")]),
+              _c("td", [_vm._v(_vm._s(appointment.created_at))]),
               _vm._v(" "),
-              _c("th", [_vm._v("Remark")]),
+              _c("td", [_vm._v(_vm._s(appointment.remark))]),
               _vm._v(" "),
-              _c("th", [_vm._v("Status")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Action")]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.orderedAppointments, function (appointment) {
-              return _c("tr", { key: appointment.id }, [
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.appo,
-                        expression: "appo",
-                      },
-                    ],
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      value: appointment.id,
-                      checked: Array.isArray(_vm.appo)
-                        ? _vm._i(_vm.appo, appointment.id) > -1
-                        : _vm.appo,
-                    },
-                    on: {
-                      change: [
-                        function ($event) {
-                          var $$a = _vm.appo,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = appointment.id,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.appo = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.appo = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.appo = $$c
-                          }
-                        },
-                        _vm.selectSingle,
-                      ],
-                    },
-                  }),
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(appointment.ClientName))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(appointment.StylistName))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(appointment.title))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(appointment.appointmentDate))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(appointment.created_at))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(appointment.remark))]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "btn-group" }, [
-                    appointment.status == 0
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger",
-                            on: {
-                              click: function ($event) {
-                                return _vm.verify(appointment.id)
-                              },
-                            },
-                          },
-                          [_c("i", { staticClass: "fas fa-eye-slash" })]
-                        )
-                      : _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-success",
-                            on: {
-                              click: function ($event) {
-                                return _vm.inVerify(appointment.id)
-                              },
-                            },
-                          },
-                          [_c("i", { staticClass: "fas fa-check" })]
-                        ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "div",
-                    { staticClass: "btn-group", attrs: { role: "group" } },
-                    [
-                      _c(
+              _c("td", [
+                _c("div", { staticClass: "btn-group" }, [
+                  appointment.status == 0
+                    ? _c(
                         "button",
                         {
                           staticClass: "btn btn-danger",
                           on: {
                             click: function ($event) {
-                              return _vm.deleteAppointment(appointment.id)
+                              return _vm.verify(appointment.id)
                             },
                           },
                         },
-                        [_c("i", { staticClass: "fas fa-trash-alt" })]
+                        [_c("i", { staticClass: "fas fa-eye-slash" })]
+                      )
+                    : _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success",
+                          on: {
+                            click: function ($event) {
+                              return _vm.inVerify(appointment.id)
+                            },
+                          },
+                        },
+                        [_c("i", { staticClass: "fas fa-check" })]
                       ),
-                    ]
-                  ),
                 ]),
-              ])
-            }),
-            0
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "div",
+                  { staticClass: "btn-group", attrs: { role: "group" } },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function ($event) {
+                            return _vm.deleteAppointment(appointment.id)
+                          },
+                        },
+                      },
+                      [_c("i", { staticClass: "fas fa-trash-alt" })]
+                    ),
+                  ]
+                ),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c("nav", { staticClass: "row" }, [
+        _c("ul", { staticClass: "pagination w-auto mx-auto" }, [
+          _c(
+            "li",
+            {
+              staticClass: "page-item",
+              class: [{ disabled: !_vm.pagination.prev_page_url }],
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "btn page-link",
+                  on: {
+                    click: function ($event) {
+                      return _vm.getResults(_vm.pagination.prev_page_url)
+                    },
+                  },
+                },
+                [_vm._v("Precedent")]
+              ),
+            ]
           ),
           _vm._v(" "),
-          _c("pagination", {
-            staticClass: "mt-5",
-            attrs: { data: _vm.appointments },
-            on: { "pagination-change-page": _vm.getResults },
-          }),
-        ],
-        1
-      ),
+          _c("li", { staticClass: "page-item" }, [
+            _c(
+              "a",
+              { staticClass: "page-link text-dark", attrs: { href: "#" } },
+              [
+                _vm._v(
+                  _vm._s(
+                    _vm.pagination.current_page + "/" + _vm.pagination.last_page
+                  )
+                ),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "page-item",
+              class: [{ disabled: !_vm.pagination.next_page_url }],
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "btn page-link",
+                  on: {
+                    click: function ($event) {
+                      return _vm.getResults(_vm.pagination.next_page_url)
+                    },
+                  },
+                },
+                [_vm._v("Suivant")]
+              ),
+            ]
+          ),
+        ]),
+      ]),
     ]),
   ])
 }
@@ -46178,44 +46264,95 @@ var render = function () {
     _c("div", { staticClass: "table-responsive" }, [
       _c("h2", { staticClass: "text-center" }, [_vm._v("Appointments List")]),
       _vm._v(" "),
-      _c(
-        "table",
-        { staticClass: "table table-striped table-hover" },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            [
-              _vm._l(_vm.orderedAppointments, function (appointment) {
-                return _c("tr", { key: appointment.id }, [
-                  _c("td", [_vm._v(_vm._s(appointment.ClientName))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(appointment.title))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(appointment.appointmentDate))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(appointment.price))]),
-                ])
-              }),
-              _vm._v(" "),
-              _c("tr", [
-                _c("th", [_vm._v("total")]),
+      _c("table", { staticClass: "table table-striped table-hover" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          [
+            _vm._l(_vm.orderedAppointments, function (appointment) {
+              return _c("tr", { key: appointment.id }, [
+                _c("td", [_vm._v(_vm._s(appointment.ClientName))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.total) + " Dt")]),
-              ]),
-            ],
-            2
+                _c("td", [_vm._v(_vm._s(appointment.title))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(appointment.appointmentDate))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(appointment.price))]),
+              ])
+            }),
+            _vm._v(" "),
+            _c("tr", [
+              _c("th", [_vm._v("total")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.total) + " Dt")]),
+            ]),
+          ],
+          2
+        ),
+      ]),
+      _vm._v(" "),
+      _c("nav", { staticClass: "row" }, [
+        _c("ul", { staticClass: "pagination w-auto mx-auto" }, [
+          _c(
+            "li",
+            {
+              staticClass: "page-item",
+              class: [{ disabled: !_vm.pagination.prev_page_url }],
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "btn page-link",
+                  on: {
+                    click: function ($event) {
+                      return _vm.getResults(_vm.pagination.prev_page_url)
+                    },
+                  },
+                },
+                [_vm._v("Precedent")]
+              ),
+            ]
           ),
           _vm._v(" "),
-          _c("pagination", {
-            staticClass: "mt-5",
-            attrs: { data: _vm.appointments },
-            on: { "pagination-change-page": _vm.getResults },
-          }),
-        ],
-        1
-      ),
+          _c("li", { staticClass: "page-item" }, [
+            _c(
+              "a",
+              { staticClass: "page-link text-dark", attrs: { href: "#" } },
+              [
+                _vm._v(
+                  _vm._s(
+                    _vm.pagination.current_page + "/" + _vm.pagination.last_page
+                  )
+                ),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "page-item",
+              class: [{ disabled: !_vm.pagination.next_page_url }],
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "btn page-link",
+                  on: {
+                    click: function ($event) {
+                      return _vm.getResults(_vm.pagination.next_page_url)
+                    },
+                  },
+                },
+                [_vm._v("Suivant")]
+              ),
+            ]
+          ),
+        ]),
+      ]),
     ]),
   ])
 }

@@ -27,9 +27,20 @@
 
             </tr>
             </tbody>
-                <pagination :data="appointments" @pagination-change-page="getResults" class="mt-5"></pagination>
-
         </table>
+         <nav class="row">
+            <ul class="pagination w-auto mx-auto">
+                <li :class="[{ disabled: !pagination.prev_page_url }]" class="page-item">
+                    <a @click="getResults(pagination.prev_page_url)" class="btn page-link">Precedent</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="#">{{ pagination.current_page + "/" + pagination.last_page }}</a>
+                </li>
+                <li :class="[{ disabled: !pagination.next_page_url }]" class="page-item">
+                    <a @click="getResults(pagination.next_page_url)" class="btn page-link">Suivant</a>
+                </li>
+            </ul>
+        </nav>
         </div>
     </div>
 
@@ -43,33 +54,37 @@
             }
         },
         created() {
-          this.fetchAll();
+            this.getResults();
         },
         computed: {
         orderedAppointments: function () {
-            return _.orderBy(this.appointments.data, 'appointmentDate')
+            return _.orderBy(this.appointments, 'appointmentDate')
         },
         total () {
             return this.orderedAppointments.reduce( (acc, appointment) => {
             return acc + appointment.price
             }, 0)
         }
-
         },
         methods: {
-            fetchAll() {
-             this.axios
-                .get('http://localhost:8000/api/commisionStylist/')
-                .then(response => {
-                    this.appointments = response.data;
+            getResults(page_url='/api/commisionStylist/') {
+            let vm = this;
+            axios.get(page_url)
+                .then(res=>res.data)
+                .then(res => {
+                    this.appointments = res.data;
+                    vm.makePagination(res);
                 });
             },
-            getResults(page = 1) {
-                axios.get('http://localhost:8000/api/commisionStylist/?page=' + page)
-                    .then(response => {
-                        this.appointments = response.data;
-                    });
-            }
+             makePagination(meta) {
+                this.pagination = {
+                    current_page: meta.current_page,
+                    current_page_url: 'http://localhost:8000/api/commisionStylist/?page=' + meta.current_page,
+                    last_page: meta.last_page,
+                    next_page_url: meta.next_page_url,
+                    prev_page_url: meta.prev_page_url
+                };
+            },
 
         }
     }

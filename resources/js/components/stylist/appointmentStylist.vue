@@ -50,9 +50,20 @@
                 </td>
             </tr>
             </tbody>
-                <pagination :data="appointments" @pagination-change-page="getResults" class="mt-5"></pagination>
-
         </table>
+        <nav class="row">
+            <ul class="pagination w-auto mx-auto">
+                <li :class="[{ disabled: !pagination.prev_page_url }]" class="page-item">
+                    <a @click="getResults(pagination.prev_page_url)" class="btn page-link">Precedent</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="#">{{ pagination.current_page + "/" + pagination.last_page }}</a>
+                </li>
+                <li :class="[{ disabled: !pagination.next_page_url }]" class="page-item">
+                    <a @click="getResults(pagination.next_page_url)" class="btn page-link">Suivant</a>
+                </li>
+            </ul>
+        </nav>
         </div>
     </div>
 </template>
@@ -62,31 +73,38 @@
         data() {
             return {
                 appointments: [],
-                 multipleSelect:false,
-                appo:[]
+                multipleSelect:false,
+                appo:[],
+                pagination: {},
+
             }
         },
         created() {
-          this.fetchAll();
+            this.getResults();
         },
         computed: {
         orderedAppointments: function () {
-            return _.orderBy(this.appointments.data, 'appointmentDate')
+            return _.orderBy(this.appointments, 'appointmentDate')
         }
         },
         methods: {
-              fetchAll() {
-             this.axios
-                .get('http://localhost:8000/api/appointmentsStylist/')
-                .then(response => {
-                    this.appointments = response.data;
+            getResults(page_url='/api/appointmentsStylist/') {
+            let vm = this;
+            axios.get(page_url)
+                .then(res=>res.data)
+                .then(res => {
+                    this.appointments = res.data;
+                    vm.makePagination(res);
                 });
             },
-             getResults(page = 1) {
-                axios.get('http://localhost:8000/api/appointmentsStylist/?page=' + page)
-                    .then(response => {
-                        this.appointments = response.data;
-                    });
+             makePagination(meta) {
+                this.pagination = {
+                    current_page: meta.current_page,
+                    current_page_url: 'http://localhost:8000/api/appointmentsStylist/?page=' + meta.current_page,
+                    last_page: meta.last_page,
+                    next_page_url: meta.next_page_url,
+                    prev_page_url: meta.prev_page_url
+                };
             },
             deleteAppointment(id) {
                                 if(window.confirm("do you confirm that you want to delete")){
@@ -101,12 +119,12 @@
             verify(id) {
                  this.axios
                     .put(`http://localhost:8000/api/appointmentsStylist/verify/`+id)
-                    .then(()=>{this.fetchAll();});
+                    .then(()=>{this.getResults();});
             },
             inVerify(id) {
                  this.axios
                     .put(`http://localhost:8000/api/appointmentsStylist/inVerify/`+id)
-                    .then(()=>{this.fetchAll();});
+                    .then(()=>{this.getResults();});
             },
              selectAll(){
                 if(this.multipleSelect==true){
