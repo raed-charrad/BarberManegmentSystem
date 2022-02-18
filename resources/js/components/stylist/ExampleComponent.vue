@@ -1,16 +1,23 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+     <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25">
+      <stats-card header-color="blue">
+        <template slot="header">
+          <div class="card-icon">
+            <i class="fab fa-twitter"></i>
+          </div>
+          <p class="category">Folowers</p>
+          <h3 class="title">
+            +245
+          </h3>
+        </template>
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
+        <template slot="footer">
+          <div class="stats">
+            <md-icon>update</md-icon>
+            Just Updated
+          </div>
+        </template>
+      </stats-card>
     </div>
 </template>
 

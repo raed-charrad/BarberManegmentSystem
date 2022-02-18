@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" style="background:white">
         <div class="table-responsive mt-3">
         <h2 class="text-center">Products List</h2>
         <div class="row">

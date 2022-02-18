@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-3">
+    <div class="container mt-3 mb-3" style="background:white">
         <h3 class="text-center">Edit Servises</h3>
         <div class="row">
             <div class="col-md-6">

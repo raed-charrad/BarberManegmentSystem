@@ -43,8 +43,9 @@ class AppointmentControler extends Controller
         ->where('appointments.status','=',1)
         ->paginate(5);
         return response()->json($commition,200);
-
     }
+
+
     public function verify($id){
         $appointment=appointments::find($id);
         $appointment->status=1;

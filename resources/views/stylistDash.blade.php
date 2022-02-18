@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <script type="text/javascript" src="{{asset('js/app.js')}}" defer></script>
 </head>
-<body>
+<body style="background:#f2edf3">
             @include('layouts.partials.navbar')
             <div id="appStylist">
                 <sidebar ></sidebar>

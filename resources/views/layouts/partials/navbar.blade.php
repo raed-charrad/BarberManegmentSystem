@@ -47,7 +47,7 @@
                             </li>
                         @endif
                         <li class="nav-item" >
-                            <img src="{!!asset('storage'.Auth::user()->image)!!}" width="50" height="50" style="border-radius:50% ">
+                            <img src="{!!asset('storage'.Auth::user()->image)!!}" width="30" height="30" style="border-radius:50% ">
                         </li>
 
                             <li class="nav-item dropdown">
