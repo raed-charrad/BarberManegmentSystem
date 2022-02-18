@@ -5,9 +5,10 @@
          @toggle-collapse='width'
         :menu='[
             {
-            header: true,
             title: "Dashboard",
-            hiddenOnCollapse: true,
+            href: "/dashboard",
+            icon: "	fas fa-tachometer-alt"
+
             },
             {
             title: "Profile",

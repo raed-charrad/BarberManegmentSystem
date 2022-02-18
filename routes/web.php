@@ -48,6 +48,7 @@ Route::post('/appointmentSend', 'App\Http\Controllers\AppointmentControler@appoi
 Route::get('/api/appointmentsStylist', 'App\Http\Controllers\AppointmentControler@showAppointments');
 Route::get('/api/commisionStylist', 'App\Http\Controllers\AppointmentControler@commition');
 Route::post('/api/stylist/show', 'App\Http\Controllers\StylistController@show');
+Route::post('/api/stylist/dashboard', 'App\Http\Controllers\StylistController@data');
 
 
 

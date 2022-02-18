@@ -24,10 +24,18 @@ import appointment from './components/admin/appointments';
 import appointmentStylist from './components/stylist/appointmentStylist';
 import commition from './components/stylist/commitionList'
 import editProfile from './components/stylist/editProfile';
+import dashStylist from './components/stylist/dashboardStylist';
+import dashAdmin from './components/admin/dashboardAdmin';
+
 import Vue from 'vue';
 const router = new VueRouter({
     mode: 'history',
     routes: [
+        {
+            path: '/dashboard',
+            name: 'dashboard',
+            component: dashAdmin
+        },
         {
             path: '/allUsers',
             name: 'User',
@@ -64,6 +72,11 @@ const router = new VueRouter({
 const routerS = new VueRouter({
     mode: 'history',
     routes: [
+        {
+            path: '/dashboard',
+            name: 'dashboard',
+            component: dashStylist
+        },
         {
             path: '/servises',
             name: 'services',

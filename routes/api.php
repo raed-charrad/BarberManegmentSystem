@@ -27,14 +27,16 @@ Route::prefix('/service')->namespace('App\Http\Controllers')->group(function(){
 
 });
 Route::prefix('/stylist')->namespace('App\Http\Controllers')->group(function(){
-    Route::get('/','StylistController@index');
+    Route::post('/','StylistController@index');
     Route::delete('/{id}', 'StylistController@delete');
     Route::post('/update', 'StylistController@updateStylist');
     Route::put('/verify/{id}', 'StylistController@verify');
 });
 Route::prefix('/user')->namespace('App\Http\Controllers')->group(function(){
-    Route::get('/','userController@index');
+    Route::post('/','userController@index');
     Route::delete('/{id}', 'StylistController@delete');
+    Route::get('/data','userController@data');
+
 });
 Route::prefix('/appointmentAdmin')->namespace('App\Http\Controllers')->group(function(){
     Route::get('/','AppointmentControler@index');
