@@ -4,16 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class StylistController extends Controller
 {
-    public function index(){
-        $Stylist=User::with('role')->orderBy('updated_at','DESC')->whereHas('role',function($a){$a->where('role_id',2);})->paginate(2);
+    public function index(Request $request){
+        $search=$request->input('search');
+        $Stylist=DB::table('users')
+        ->join('role_user','users.id','=','role_user.user_id')
+        ->where('role_id','=',2)
+        ->where('users.name','like','%'.$search.'%')
+        ->orderBy('updated_at','DESC')
+        ->paginate(3);
         return response()->json($Stylist,200);
     }
     public function delete($id, Request $request){
-
             $Stylist = User::find($id);
             $Stylist->delete();
             return response()->json('Stylist deleted!');
@@ -47,4 +53,16 @@ class StylistController extends Controller
         $user->update($data);
         return response()->json('Product updated!');
     }
+    public function data(){
+        $users=DB::table('users')->get();
+        $commition=DB::table('appointments')
+        ->join('users', 'appointments.idClient', '=', 'users.id')
+        ->join('services','appointments.idServices','=','services.id')
+        ->where('appointments.idStylist','=',Auth::user()->id)
+        ->where('appointments.status','=',1)
+        ->get();
+        $orders=DB::table('appointments')->get();
+        return response()->json(['users'=>$users, 'orders'=>$orders,'commition'=>$commition],200);
+    }
+
 }

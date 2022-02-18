@@ -1,12 +1,24 @@
 <template>
-    <div class="container">
+    <div class="container" style="background:white">
         <div class="table-responsive mt-3">
-        <h2 class="text-center">Users List</h2>
+        <h2 class="text-center mt-3">Users List</h2>
        <div class="row">
-           <div class="col_md-12 mt-1">
+           <div class="col-6 mt-1 mb-2">
                <button type="button" class="btn btn-danger" @click="deletteRecords">Delete</button>
            </div>
+          <div class="col-6 float-right mt-3">
+           <div class="row float-right">
+                <div class="form-outline col-8 mr-1">
+                    <input name="search" type="search" id="form1" class="form-control" v-on:keyup="getResults()" v-model="search" placeholder="Search" />
+                </div>
+                <button type="button" class="btn btn-primary col-2 p-1" @click="getResults()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            </div>
        </div>
+        <h1 class="text-center text-danger " v-if="users.length==0">No users found</h1>
+
         <table class="table table-striped table-hover">
             <thead>
             <tr>
@@ -18,7 +30,6 @@
                 <th>Phone</th>
                 <th>CIN</th>
                 <th>Adress</th>
-                <th>Image</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -32,7 +43,6 @@
                 <td>{{ user.phone }}</td>
                 <td>{{ user.cin }}</td>
                 <td>{{ user.adress }}</td>
-                <td>{{ user.image }}</td>
                 <td>
                     <div class="btn-group" role="group">
                         <button class="btn btn-danger" @click="deleteUser(user.id)"><i class="fas fa-trash-alt"></i></button>
@@ -67,6 +77,7 @@
                 multipleSelect:false,
                 use:[],
                 pagination: {},
+                search:""
 
             }
         },
@@ -76,7 +87,6 @@
         methods: {
             deleteUser(id) {
                 if(window.confirm("do you confirm that you want to delete")){
-
                     this.axios
                         .delete(`http://localhost:8000/api/user/${id}`)
                         .then(response => {
@@ -87,7 +97,7 @@
             },
             getResults(page_url='/api/user/') {
             let vm = this;
-            axios.get(page_url)
+            axios.post(page_url,{ search:this.search })
                 .then(res=>res.data)
                 .then(res => {
                     this.users = res.data;

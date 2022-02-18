@@ -1,12 +1,24 @@
 <template>
-    <div class="container">
+    <div class="container" style="background:white">
         <div class="table-responsive mt-3">
-        <h2 class="text-center">Stylist List</h2>
+        <h2 class="text-center mt-3">Stylist List</h2>
          <div class="row">
-           <div class="col_md-12 mt-1">
+           <div class="col-6 mt-1 mb-2">
                <button type="button" class="btn btn-danger" @click="deletteRecords">Delete</button>
            </div>
+          <div class="col-6 float-right mt-3">
+           <div class="row float-right">
+                <div class="form-outline col-8 mr-1">
+                    <input name="search" type="search" id="form1" class="form-control" v-on:keyup="getResults()" v-model="search" placeholder="Search" />
+                </div>
+                <button type="button" class="btn btn-primary col-2 p-1" @click="getResults()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            </div>
        </div>
+        <h1 class="text-center text-danger " v-if="Stylists.length==0">No stylists found</h1>
+
         <table class="table table-striped table-hover">
             <thead>
             <tr>
@@ -40,6 +52,7 @@
                     </div>
                 </td>
             </tr>
+
             </tbody>
         </table>
                  <nav class="row">
@@ -77,6 +90,7 @@
                 multipleSelect:false,
                 sty:[],
                 pagination: {},
+                search:""
             }
         },
         created() {
@@ -85,7 +99,7 @@
         methods: {
             getResults(page_url='/api/stylist/') {
                 let vm = this;
-                axios.get(page_url)
+                axios.post(page_url,{ search:this.search })
                     .then(res=>res.data)
                     .then(res => {
                         this.Stylists = res.data;
