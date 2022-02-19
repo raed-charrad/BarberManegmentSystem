@@ -49,7 +49,6 @@ class StylistController extends Controller
         $data['image'] = $name;
     }
         $user = User::find($id);
-        print_r($user);
         $user->update($data);
         return response()->json('Product updated!');
     }

@@ -1,7 +1,7 @@
 <template>
   <sidebar-menu
         :collapsed="false"
-        :width="'160px'"
+        :width="'220px'"
          @toggle-collapse='width'
         :menu='[
             {
@@ -23,11 +23,6 @@
                     title: "Edit Profile",
                     },
                 ],
-            },
-            {
-            title: "Servises",
-            icon: "fa fa-list",
-            href: "/servises",
             },
             {
             title: "Appointments",

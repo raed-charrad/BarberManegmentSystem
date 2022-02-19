@@ -17,11 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $services = DB::table('services')->select('id','title')->get();
+    $services = DB::table('services')->select('id','title','image')->get();
     $stylists = DB::table('users')
     ->join('role_user', 'users.id', '=', 'role_user.user_id')
-    ->select('id','name')
+    ->select('id','name','image')
     ->where('role_user.role_id', '=', '2')
+    ->where('users.image','!=','user.png')
     ->get();
     return view('welcome',['services'=>$services,'stylists'=>$stylists]);
 });
@@ -29,8 +30,9 @@ Route::get('/about', function () {
     $services = DB::table('services')->select('id','title')->get();
     $stylists = DB::table('users')
     ->join('role_user', 'users.id', '=', 'role_user.user_id')
-    ->select('id','name')
+    ->select('id','name','image')
     ->where('role_user.role_id', '=', '2')
+    ->where('users.image','!=','user.png')
     ->get();
     return view('about',['services'=>$services,'stylists'=>$stylists]);
 });
@@ -53,11 +55,12 @@ Route::post('/api/stylist/dashboard', 'App\Http\Controllers\StylistController@da
 
 
 Route::get('/hairstyle', function () {
-    $services = DB::table('services')->select('id','title')->get();
+    $services = DB::table('services')->select('id','title','image')->get();
     $stylists = DB::table('users')
     ->join('role_user', 'users.id', '=', 'role_user.user_id')
     ->select('id','name')
     ->where('role_user.role_id', '=', '2')
+    ->where('users.image','!=','user.png')
     ->get();
 
     return view('hairstyle',['services'=>$services,'stylists'=>$stylists]);

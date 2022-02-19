@@ -41,14 +41,17 @@
                            <li class="nav-item">
                               <a class="nav-link" href="/dashboard">Dashboard</a>
                             </li>
+                            <li class="nav-item" >
+                                <img src="{!!asset('storage'.Auth::user()->image)!!}" width="30" height="30" style="border-radius:50% ">
+                            </li>
                         @elseif(Auth::user()->hasRole('stylist'))
                             <li class="nav-item">
                               <a class="nav-link" href="/dashboard">Stylist</a>
                             </li>
+                            <li class="nav-item" >
+                                <img src="{!!asset('storage'.Auth::user()->image)!!}" width="30" height="30" style="border-radius:50% ">
+                            </li>
                         @endif
-                        <li class="nav-item" >
-                            <img src="{!!asset('storage'.Auth::user()->image)!!}" width="30" height="30" style="border-radius:50% ">
-                        </li>
 
                             <li class="nav-item dropdown">
 

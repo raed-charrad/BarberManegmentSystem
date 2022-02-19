@@ -56,62 +56,25 @@
       </div>
     </section>
     <!-- END section -->
-    
-
-    <section class="site-section pb-5">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-md-8 text-center">
-            <h1>Team</h1>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quia tempore magni dolore dolorum reprehenderit illum consectetur minima</p>
-          </div>
-        </div>
-        <div class="row element-animate">
-          <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_5.jpg" alt="Image placeholder" class="img-fluid">
-          </div>
-          <div class="col-md-6 pl-md-5">
-            <h3>Jay Ramzee</h3>
-            <p class="lead">Expert Barber</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam facere a excepturi quod impedit rerum ipsum totam incidunt, necessitatibus id veritatis maiores quos saepe dolore commodi magnam fugiat. Incidunt, omnis.</p>
-            <p>Nobis quae eaque facere architecto eligendi, voluptas quasi, blanditiis aperiam possimus inventore quis nam! Cupiditate necessitatibus, voluptatem excepturi placeat exercitationem quos vitae ut vero dolorem, provident sit odio porro facere.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-
+    @foreach ($stylists as $stylist)
     <section class="pt-5 pb-5">
-      <div class="container">
-        <div class="row element-animate">
-          <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_7.jpg" alt="Image placeholder" class="img-fluid">
-          </div>
-          <div class="col-md-6 pl-md-5">
-            <h3>Chris Worth</h3>
-            <p class="lead">Expert Barber</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam facere a excepturi quod impedit rerum ipsum totam incidunt, necessitatibus id veritatis maiores quos saepe dolore commodi magnam fugiat. Incidunt, omnis.</p>
-            <p>Nobis quae eaque facere architecto eligendi, voluptas quasi, blanditiis aperiam possimus inventore quis nam! Cupiditate necessitatibus, voluptatem excepturi placeat exercitationem quos vitae ut vero dolorem, provident sit odio porro facere.</p>
+        <div class="container">
+          <div class="row element-animate">
+            <div class="col-md-6 video-wrap mb-5">
+              <img src="{{ URL::asset('storage'.$stylist->image)}}" alt="Image placeholder" class="img-fluid">
+            </div>
+            <div class="col-md-6 pl-md-5">
+              <h3>{{$stylist->name}}</h3>
+              <p class="lead">Expert Barber</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam facere a excepturi quod impedit rerum ipsum totam incidunt, necessitatibus id veritatis maiores quos saepe dolore commodi magnam fugiat. Incidunt, omnis.</p>
+              <p>Nobis quae eaque facere architecto eligendi, voluptas quasi, blanditiis aperiam possimus inventore quis nam! Cupiditate necessitatibus, voluptatem excepturi placeat exercitationem quos vitae ut vero dolorem, provident sit odio porro facere.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- END section -->
+      </section>
+    @endforeach
 
-    <section class="pt-5 pb-5">
-      <div class="container">
-        <div class="row element-animate">
-          <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_8.jpg" alt="Image placeholder" class="img-fluid">
-          </div>
-          <div class="col-md-6 pl-md-5">
-            <h3>Dan Fisher</h3>
-            <p class="lead">Expert Barber</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam facere a excepturi quod impedit rerum ipsum totam incidunt, necessitatibus id veritatis maiores quos saepe dolore commodi magnam fugiat. Incidunt, omnis.</p>
-            <p>Nobis quae eaque facere architecto eligendi, voluptas quasi, blanditiis aperiam possimus inventore quis nam! Cupiditate necessitatibus, voluptatem excepturi placeat exercitationem quos vitae ut vero dolorem, provident sit odio porro facere.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+
+
     <!-- END section -->
 @endsection

@@ -7,7 +7,6 @@
           <div class="col-md-8 text-center">
 
             <div class="mb-5 element-animate">
-              <!-- <img src="images/banner_text_1.png" alt="Image placeholder" class="img-md-fluid"> -->
               <h1 class="mb-4">Hair Styles</h1>
               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, quo!</p>
             </div>
@@ -18,10 +17,6 @@
     </section>
     <!-- END section -->
 
-    
-
-
-   
  <section class="quick-info element-animate" data-animate-effect="fadeInLeft">
       <div class="container">
         <div class="row">
@@ -60,59 +55,29 @@
       </div>
     </section>
     <!-- END section -->
-    
-
-    <section class="site-section pb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_5.jpg" alt="Image placeholder" class="img-fluid">
-          </div>
-          <div class="col-md-6 pl-md-5">
-            <h3>Crew Cut</h3>
-            <p class="lead">Expert Barber</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam facere a excepturi quod impedit rerum ipsum totam incidunt, necessitatibus id veritatis maiores quos saepe dolore commodi magnam fugiat. Incidunt, omnis.</p>
-            <p>Nobis quae eaque facere architecto eligendi, voluptas quasi, blanditiis aperiam possimus inventore quis nam! Cupiditate necessitatibus, voluptatem excepturi placeat exercitationem quos vitae ut vero dolorem, provident sit odio porro facere.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-
-    <section class="pt-5 pb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg" alt="Image placeholder" class="img-fluid">
-          </div>
-          <div class="col-md-6 pl-md-5">
-            <h3>Regular Hair Cut</h3>
-            <p class="lead">Expert Barber</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam facere a excepturi quod impedit rerum ipsum totam incidunt, necessitatibus id veritatis maiores quos saepe dolore commodi magnam fugiat. Incidunt, omnis.</p>
-            <p>Nobis quae eaque facere architecto eligendi, voluptas quasi, blanditiis aperiam possimus inventore quis nam! Cupiditate necessitatibus, voluptatem excepturi placeat exercitationem quos vitae ut vero dolorem, provident sit odio porro facere.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-
-    <section class="pt-5 pb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 video-wrap mb-5">
-            <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg" alt="Image placeholder" class="img-fluid">
-          </div>
-          <div class="col-md-6 pl-md-5">
-            <h3>Hair Color</h3>
-            <p class="lead">Expert Barber</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam facere a excepturi quod impedit rerum ipsum totam incidunt, necessitatibus id veritatis maiores quos saepe dolore commodi magnam fugiat. Incidunt, omnis.</p>
-            <p>Nobis quae eaque facere architecto eligendi, voluptas quasi, blanditiis aperiam possimus inventore quis nam! Cupiditate necessitatibus, voluptatem excepturi placeat exercitationem quos vitae ut vero dolorem, provident sit odio porro facere.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <?php $count = 0; ?>
+    @foreach ($services as $service)
+        <?php if($count == 3) break; ?>
+        <section class="site-section pb-5">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-6 video-wrap mb-5">
+                    <img src="{{ URL::asset('storage'.$service->image)}}" alt="Image placeholder" class="img-fluid">
+                </div>
+                <div class="col-md-6 pl-md-5">
+                <h3>{{$service->title}}</h3>
+                <p class="lead">Expert Barber</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam facere a excepturi quod impedit rerum ipsum totam incidunt, necessitatibus id veritatis maiores quos saepe dolore commodi magnam fugiat. Incidunt, omnis.</p>
+                <p>Nobis quae eaque facere architecto eligendi, voluptas quasi, blanditiis aperiam possimus inventore quis nam! Cupiditate necessitatibus, voluptatem excepturi placeat exercitationem quos vitae ut vero dolorem, provident sit odio porro facere.</p>
+                </div>
+            </div>
+            </div>
+        </section>
+        <?php $count++; ?>
+    @endforeach
     <!-- END section -->
     <section class="site-section">
+
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center">
@@ -121,48 +86,15 @@
           </div>
         </div>
         <div class="row top-destination">
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg" alt="Image placeholder">
-              <h2>Beard Shaving</h2>
-              <p>Learn More</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg" alt="Image placeholder">
-              <h2>Crew Cut</h2>
-              <p>Learn More</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg" alt="Image placeholder">
-              <h2>Beard Trim</h2>
-              <p>Learn More</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_4.jpg" alt="Image placeholder">
-              <h2>Shampoo + Hair Cut</h2>
-              <p>Learn More</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_5.jpg" alt="Image placeholder">
-              <h2>Hair Color</h2>
-              <p>Learn More</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_6.jpg" alt="Image placeholder">
-              <h2>Crew Hair Cut</h2>
-              <p>Learn More</p>
-            </a>
-          </div>
+            @foreach ($services as $service)
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <a href="#" class="place">
+                    <img src="{{ URL::asset('storage'.$service->image)}}" alt="Image placeholder">
+                    <h2>Beard Shaving</h2>
+                    <p>Learn More</p>
+                    </a>
+                </div>
+             @endforeach
         </div>
       </div>
     </section>
