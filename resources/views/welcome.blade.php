@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('content')
-
    <!-- END header -->
    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url({{asset('assets/images/big_image_1.jpg')}});">
      <div class="container">
        <div class="row align-items-center site-hero-inner justify-content-center">
          <div class="col-md-8 text-center">
 
-           <div class="mb-5 element-animate">
+           <div class="mb-5 ">
              <img src="https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/banner_text_1.png" alt="Image placeholder" class="img-md-fluid">
            </div>
 
@@ -17,7 +16,7 @@
    </section>
    <!-- END section -->
 
-   <section class="quick-info element-animate" data-animate-effect="fadeInLeft">
+   <section class="quick-info " data-animate-effect="fadeInLeft">
      <div class="container">
        <div class="row">
          <div class="col-lg-8 bgcolor">
@@ -61,12 +60,12 @@
      <div class="container">
        <div class="row">
          <div class="col-md-4 pr-5">
-           
+
            <h2 class="mb-3">Services</h2>
            <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-           
+
            <div class="mb-3 custom-nav">
-             <a href="#" class="btn btn-primary btn-sm custom-prev mr-2 mb-2"><i class="bi bi-arrow-left"></i></span></a> 
+             <a href="#" class="btn btn-primary btn-sm custom-prev mr-2 mb-2"><i class="bi bi-arrow-left"></i></span></a>
              <a href="#" class="btn btn-primary btn-sm custom-next mr-2 mb-2"><i class="bi bi-arrow-right"></i></span></a>
            </div>
          </div>
@@ -74,101 +73,17 @@
            <div class="row">
              <div class="col-md-12 slider-wrap">
                <div class="owl-carousel owl-theme no-nav js-carousel-1">
-                 
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Haircuting</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
 
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Beard Shaving</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
-                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Cream &amp; Shampoo</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Haircuting</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Beard Shaving</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
-                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Cream &amp; Shampoo</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Haircuting</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Beard Shaving</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
-                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Cream &amp; Shampoo</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_2.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Haircuting</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
-                 <a href="#" class="img-bg" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_1.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Beard Shaving</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
-                 <a href="#" class="img-bg last" style="background-image: url('https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/img_3.jpg')">
-                   <div class="text">
-                     <span class="icon custom-icon flaticon-scissors"></span>
-                     <h2>Cream &amp; Shampoo</h2>
-                     <p>Read More</p>
-                   </div>
-                 </a>
-
+                @foreach ($services as $service)
+                <a href="#" class="img-bg" style="background-image: url('{{ URL::asset('storage'.$service->image)}}')">
+                    {{-- <img src="{{ URL::asset('storage'.$service->image)}}" alt="" width="90" height="90"> --}}
+                    <div class="text">
+                      <span class="icon custom-icon flaticon-scissors"></span>
+                      <h2>{{ $service->title }}</h2>
+                      <p>Read More</p>
+                    </div>
+                  </a>
+             @endforeach
                </div>
              </div>
            </div>
@@ -256,7 +171,7 @@
    <section class="section-cover cta" data-stellar-background-ratio="0.5" style="background-image: url(https://raw.githubusercontent.com/raed-charrad/BarberManegmentSystem/master/public/assets/images/big_image_2.jpg);">
      <div class="container">
        <div class="row justify-content-center align-items-center intro">
-         <div class="col-md-8 text-center element-animate">
+         <div class="col-md-8 text-center ">
            <h2 class="mb-4"><span>Appoint a Haircut Today and</span> Get 25% discount</h2>
            @if (Auth::check())
            <p><button type="button" class="btn btn-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Make an Appointment</button></p>
