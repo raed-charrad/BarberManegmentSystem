@@ -49,9 +49,9 @@ Route::post('/contactsend', 'App\Http\Controllers\ContactUsFormController@Contac
 Route::post('/appointmentSend', 'App\Http\Controllers\AppointmentControler@appointmentForm')->name('appointment.store');
 Route::get('/api/appointmentsStylist', 'App\Http\Controllers\AppointmentControler@showAppointments');
 Route::get('/api/commisionStylist', 'App\Http\Controllers\AppointmentControler@commition');
-Route::post('/api/stylist/show', 'App\Http\Controllers\StylistController@show');
+Route::get('/api/stylist/show', 'App\Http\Controllers\StylistController@show');
 Route::post('/api/stylist/dashboard', 'App\Http\Controllers\StylistController@data');
-Route::post('/api/user/show', 'App\Http\Controllers\userController@show');
+Route::get('/api/user/show', 'App\Http\Controllers\userController@show');
 
 
 

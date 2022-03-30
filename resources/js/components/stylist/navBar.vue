@@ -13,16 +13,7 @@
             {
             title: "Profile",
             icon: "fa fa-user",
-            child: [
-                    {
-                    href: "/",
-                    title: "Vue Profile",
-                    },
-                    {
-                    href: "/editProfile",
-                    title: "Edit Profile",
-                    },
-                ],
+            href: "/editProfile",
             },
             {
             title: "Appointments",

@@ -31,6 +31,7 @@ Route::prefix('/stylist')->namespace('App\Http\Controllers')->group(function(){
     Route::delete('/{id}', 'StylistController@delete');
     Route::post('/update', 'StylistController@updateStylist');
     Route::put('/verify/{id}', 'StylistController@verify');
+
 });
 Route::prefix('/user')->namespace('App\Http\Controllers')->group(function(){
     Route::post('/','userController@index');

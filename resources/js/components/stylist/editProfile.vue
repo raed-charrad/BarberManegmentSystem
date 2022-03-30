@@ -1,6 +1,6 @@
 <template>
     <div class="container mt-3 mb-3" style="background:white">
-        <h3 class="text-center">Edit Profile</h3>
+        <h3 class="text-center">Edit Profil</h3>
         <div class="row">
             <div class="col-md-6">
                 <form @submit.prevent="updateService" enctype="multipart/form-data">
@@ -11,6 +11,10 @@
                       <div class="form-group">
                         <label>Phone</label>
                         <input type="text" class="form-control" v-model="user.phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Cin :</label>
+                        <input type="text" class="form-control" v-model="user.cin">
                     </div>
                     <div class="form-group">
                             <label>Image:</label>
@@ -40,7 +44,7 @@
         },
         created() {
             this.axios
-                .post(`http://localhost:8000/api/stylist/show`)
+                .get(`http://localhost:8000/api/stylist/show`)
                 .then((res) => {
                     this.user = res.data;
             });

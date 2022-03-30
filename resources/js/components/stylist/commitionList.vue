@@ -50,7 +50,8 @@
     export default {
         data() {
             return {
-                appointments: []
+                appointments: [],
+                pagination: {},
             }
         },
         created() {

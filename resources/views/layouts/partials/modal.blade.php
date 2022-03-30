@@ -14,8 +14,8 @@
                                 <div class="form-group">
                                     <label > Service required</label>
                                     <select name="service" id="">
-                                        @foreach($services as $service)
-                                    <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                    @foreach($services as $service)
+                                        <option value="{{ $service->id }}">{{ $service->title }}</option>
                                     @endforeach
                                     </select>
                                 </div>

@@ -19423,6 +19423,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -19433,7 +19437,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   created: function created() {
     var _this = this;
 
-    this.axios.post("http://localhost:8000/api/user/show").then(function (res) {
+    this.axios.get("http://localhost:8000/api/user/show").then(function (res) {
       _this.user = res.data;
     });
   },
@@ -19723,7 +19727,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      appointments: []
+      appointments: [],
+      pagination: {}
     };
   },
   created: function created() {
@@ -19935,6 +19940,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -19945,7 +19954,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   created: function created() {
     var _this = this;
 
-    this.axios.post("http://localhost:8000/api/stylist/show").then(function (res) {
+    this.axios.get("http://localhost:8000/api/stylist/show").then(function (res) {
       _this.user = res.data;
     });
   },
@@ -20005,15 +20014,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -45113,7 +45113,7 @@ var render = function () {
     { staticClass: "container", staticStyle: { background: "white" } },
     [
       _c("div", { staticClass: "table-responsive mt-3" }, [
-        _c("h2", { staticClass: "text-center" }, [_vm._v("Products List")]),
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Services List")]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col_md-12 mt-1" }, [
@@ -47157,7 +47157,7 @@ var render = function () {
       staticStyle: { background: "white" },
     },
     [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("Edit Profile")]),
+      _c("h3", { staticClass: "text-center" }, [_vm._v("Edit Profil")]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-6" }, [
@@ -47174,7 +47174,7 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Name")]),
+                _c("label", [_vm._v("Name :")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -47200,7 +47200,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Phone")]),
+                _c("label", [_vm._v("Phone :")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -47220,6 +47220,32 @@ var render = function () {
                         return
                       }
                       _vm.$set(_vm.user, "phone", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Cin :")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.cin,
+                      expression: "user.cin",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.user.cin },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "cin", $event.target.value)
                     },
                   },
                 }),
@@ -48106,7 +48132,7 @@ var render = function () {
       staticStyle: { background: "white" },
     },
     [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("Edit Profile")]),
+      _c("h3", { staticClass: "text-center" }, [_vm._v("Edit Profil")]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-6" }, [
@@ -48169,6 +48195,32 @@ var render = function () {
                         return
                       }
                       _vm.$set(_vm.user, "phone", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Cin :")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.cin,
+                      expression: "user.cin",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.user.cin },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "cin", $event.target.value)
                     },
                   },
                 }),
@@ -48273,16 +48325,7 @@ var render = function () {
         {
           title: "Profile",
           icon: "fa fa-user",
-          child: [
-            {
-              href: "/",
-              title: "Vue Profile",
-            },
-            {
-              href: "/editProfile",
-              title: "Edit Profile",
-            },
-          ],
+          href: "/editProfile",
         },
         {
           title: "Appointments",

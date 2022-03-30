@@ -1,7 +1,7 @@
 <template>
     <div class="container" style="background:white">
         <div class="table-responsive mt-3">
-        <h2 class="text-center">Products List</h2>
+        <h2 class="text-center">Services List</h2>
         <div class="row">
            <div class="col_md-12 mt-1">
                <button type="button" class="btn btn-danger" @click="deletteRecords">Delete</button>
