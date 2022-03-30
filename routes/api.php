@@ -36,6 +36,7 @@ Route::prefix('/user')->namespace('App\Http\Controllers')->group(function(){
     Route::post('/','userController@index');
     Route::delete('/{id}', 'StylistController@delete');
     Route::get('/data','userController@data');
+    Route::post('/update', 'userController@updateUser');
 
 });
 Route::prefix('/appointmentAdmin')->namespace('App\Http\Controllers')->group(function(){

@@ -59,6 +59,7 @@ class StylistController extends Controller
         ->join('services','appointments.idServices','=','services.id')
         ->where('appointments.idStylist','=',Auth::user()->id)
         ->where('appointments.status','=',1)
+        ->orderBy('appointments.created_at','DESC')
         ->get();
         $orders=DB::table('appointments')->get();
         return response()->json(['users'=>$users, 'orders'=>$orders,'commition'=>$commition],200);

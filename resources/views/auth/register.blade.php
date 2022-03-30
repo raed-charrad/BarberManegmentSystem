@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 <body>
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -28,10 +28,23 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('FirstName') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('LastName') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"  value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -126,8 +139,11 @@
 
                         <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900 col-md-3" href="{{ route('login') }}">
                                 {{ __('login ?') }}
+                            </a>
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900 col-md-3" href="{{ route('home') }}">
+                                {{ __('Home ?') }}
                             </a>
 
                         </div>

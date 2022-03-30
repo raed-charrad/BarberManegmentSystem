@@ -23,6 +23,9 @@
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>
                 </div>
+                 <div class="col-md-6">
+                <img :src ="'../../../assets/images/edit.jpg'" alt="" width="100%">
+            </div>
             </div>
     </div>
 

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 <body>
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -68,7 +68,7 @@
                             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                                     {{ __('Register ?') }}
                             </a>
-                            <x-button class="ml-3">
+                            <x-button  class=" ml-3 btn btn-primary">
                                 {{ __('Log in') }}
                             </x-button>
                         </div>

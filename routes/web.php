@@ -25,7 +25,7 @@ Route::get('/', function () {
     ->where('users.image','!=','user.png')
     ->get();
     return view('welcome',['services'=>$services,'stylists'=>$stylists]);
-});
+})->name('home');
 Route::get('/about', function () {
     $services = DB::table('services')->select('id','title')->get();
     $stylists = DB::table('users')
@@ -51,6 +51,7 @@ Route::get('/api/appointmentsStylist', 'App\Http\Controllers\AppointmentControle
 Route::get('/api/commisionStylist', 'App\Http\Controllers\AppointmentControler@commition');
 Route::post('/api/stylist/show', 'App\Http\Controllers\StylistController@show');
 Route::post('/api/stylist/dashboard', 'App\Http\Controllers\StylistController@data');
+Route::post('/api/user/show', 'App\Http\Controllers\userController@show');
 
 
 

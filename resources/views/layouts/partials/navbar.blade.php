@@ -51,6 +51,13 @@
                             <li class="nav-item" >
                                 <img src="{!!asset('storage'.Auth::user()->image)!!}" width="30" height="30" style="border-radius:50% ">
                             </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard">profile</a>
+                            </li>
+                            <li class="nav-item" >
+                                <img src="{!!asset('storage'.Auth::user()->image)!!}" width="30" height="30" style="border-radius:50% ">
+                            </li>
                         @endif
 
                             <li class="nav-item dropdown">

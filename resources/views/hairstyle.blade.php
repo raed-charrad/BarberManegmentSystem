@@ -104,7 +104,7 @@
         <div class="row justify-content-center align-items-center intro">
           <div class="col-md-8 text-center element-animate">
             <h2 class="mb-4"><span>Appoint a Haircut Today and</span> Get 25% discount</h2>
-            @if (Auth::check())
+            @if (Auth::check()&&Auth::user()->hasVerifiedEmail())
            <p><button type="button" class="btn btn-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Make an Appointment</button></p>
           @else
           <p> <a href="{{ route('login') }}"><button type="button" class="btn btn-black" >Make an Appointment</button></a></p>

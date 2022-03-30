@@ -2,7 +2,7 @@
     <div class="container mt-3 mb-3" style="background:white">
         <div class="table-responsive mt-3">
         <h2 class="text-center">Appointments List</h2>
- <div class="row">
+        <div class="row">
            <div class="col_md-12 mt-1">
                <button type="button" class="btn btn-danger" @click="deletteRecords">Delete</button>
            </div>

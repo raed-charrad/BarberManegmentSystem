@@ -26,6 +26,7 @@ import commition from './components/stylist/commitionList'
 import editProfile from './components/stylist/editProfile';
 import dashStylist from './components/stylist/dashboardStylist';
 import dashAdmin from './components/admin/dashboardAdmin';
+import editProfileUser from './components/editProfile';
 
 import Vue from 'vue';
 const router = new VueRouter({
@@ -100,17 +101,29 @@ const routerS = new VueRouter({
 
     ],
 });
+const routerUser = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/dashboard',
+            name: 'editProfile',
+            component: editProfileUser
+        }
+    ],
+});
 Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('sidebar',require('./components/stylist/navBar.vue').default);
 Vue.component('side',require('./components/admin/sideBar.vue').default);
-
 Vue.component('example-component', require('./components/admin/dashboardAdmin.vue').default);
 
 const app1 = new Vue({
     el: '#appStylist',
     router:routerS,
  });
-
+ const app2 = new Vue({
+    el: '#appUser',
+    router:routerUser,
+});
 
 const app = new Vue({
     el: '#app',

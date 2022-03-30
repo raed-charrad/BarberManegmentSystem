@@ -7,6 +7,7 @@ use App\Models\services;
 use App\Models\appointments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
@@ -43,5 +44,28 @@ class userController extends Controller
         $orders=appointments::get();
         $services=services::get();
         return response()->json(['users'=>$users,'stylist'=>$stylist,'cuts'=>$cuts,'orders'=>$orders,'services'=>$services],200);
+    }
+    public function show(){
+        $user=User::find(Auth::user()->id)->where('id','=',Auth::user()->id)->firstOrFail();
+        return response()->json( $user,200);
+    }
+    public function updateUser(Request $request){
+        $id=$request->input('id');
+        $data =array(
+            'avatar' => $request->input('avatar'),
+            'image' => $request->input('image'),
+            'name' => $request->input('name'),
+            'phone' => $request->input('phone'),
+            'adress' => $request->input('adress'),
+        );
+        $file = $request->file('avatar');
+        if(!empty($file)){
+        $name = '/avatars/' . uniqid() . '.' . $file->extension();
+        $file->storePubliclyAs('public', $name);
+        $data['image'] = $name;
+    }
+        $user = User::find($id);
+        $user->update($data);
+        return response()->json('Product updated!');
     }
 }
