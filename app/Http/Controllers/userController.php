@@ -68,4 +68,5 @@ class userController extends Controller
         $user->update($data);
         return response()->json('Product updated!');
     }
+
 }

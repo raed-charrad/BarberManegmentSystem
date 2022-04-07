@@ -1,5 +1,7 @@
 /node_modules
 /public/hot
+/public/fonts/ionicons/cheatsheet.html
+/public/fonts/flaticon/font/flaticon.html
 /public/storage
 /storage/*.key
 /vendor
